@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
+import { ClientProvider } from '@/app-providers';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,7 +19,9 @@ export default function RootLayout({
 }>) {
     return (
         <html>
-            <body className={cn('text-base antialiased', inter.className)}>{children}</body>
+            <body className={cn('text-base antialiased', inter.className)}>
+                <ClientProvider>{children}</ClientProvider>
+            </body>
         </html>
     );
 }

@@ -16,6 +16,11 @@ const eslintConfig = defineConfig([
         'next-env.d.ts',
         '.lintstagedrc.js',
     ]),
+    {
+        rules: {
+            '@typescript-eslint/no-empty-object-type': 'off',
+        },
+    },
 ]);
 
 export default eslintConfig;
