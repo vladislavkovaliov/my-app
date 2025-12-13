@@ -1,12 +1,13 @@
 name: Semantic Release
 
 on:
-    push:
-        branches:
-            - main
-            - dev/*
-            - feature/*
-            - hotfix/*
+    #    push:
+    #        branches:
+    #            - main
+    #            - dev/*
+    #            - feature/*
+    #            - hotfix/*
+    workflow_dispatch:
 
 jobs:
     semantic-release:
