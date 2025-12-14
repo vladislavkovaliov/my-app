@@ -1,0 +1,10 @@
+{
+    "widgets": {
+        "app-header": {
+            "view": "Вид",
+            "view.table": "Таблица",
+            "profiles": "Провиль",
+            "profiles.logout": "Выход"
+        }
+    }
+}

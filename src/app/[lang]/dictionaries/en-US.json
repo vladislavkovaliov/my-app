@@ -1,0 +1,10 @@
+{
+    "widgets": {
+        "app-header": {
+            "view": "View",
+            "view.table": "Table",
+            "profiles": "Profiles",
+            "profiles.logout": "Logout"
+        }
+    }
+}
