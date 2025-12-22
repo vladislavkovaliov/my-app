@@ -42,3 +42,11 @@ next-env.d.ts
 
 # Webstorm
 .idea
+
+/src/generated/prisma
+
+/generated/prisma
+
+/generated/prisma
+
+/generated/prisma

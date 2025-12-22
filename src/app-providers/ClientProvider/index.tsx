@@ -1,16 +1,11 @@
 'use client';
 
-import { AppHeader } from '@/widgets/app-header/ui';
+import { NextAuthProvider } from '@/app-providers/SessionProvider';
 
 export function ClientProvider({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    return (
-        <>
-            <AppHeader />
-            <main>{children}</main>
-        </>
-    );
+    return <NextAuthProvider>{children}</NextAuthProvider>;
 }

@@ -1,13 +1,27 @@
+'use client';
+
 import { Button } from '@/components/ui/button';
+import { useEffect } from 'react';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
-export default async function Page({ params }: PageProps<'/[lang]'>) {
-    const { lang } = await params;
+export default function Page() {
+    const { data, status } = useSession();
+    const router = useRouter();
 
-    console.log({ lang });
+    useEffect(() => {
+        console.log({ data, status });
+    }, [data, status]);
 
     return (
         <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-            <Button>Button</Button>
+            <Button
+                onClick={() => {
+                    router.push('/health');
+                }}
+            >
+                Button
+            </Button>
         </div>
     );
 }

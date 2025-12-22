@@ -20,7 +20,7 @@ export const getMenuConfig = (): MenuConfig => {
                 {
                     id: 'logout',
                     visible: true,
-                    i18n: 'profile.logout',
+                    i18n: 'profiles.logout',
                 },
             ],
         },
