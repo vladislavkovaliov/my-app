@@ -14,11 +14,13 @@ const authOptions = {
 
             const firstName = profile?.name?.split(' ')[0];
             const lastName = profile?.name?.split(' ').slice(1).join(' ');
+            const image = user.image;
 
             const dbUser = await getUserService().findOrCreate({
                 email: user.email!,
                 firstName: firstName,
                 lastName: lastName,
+                image: image,
             });
 
             if (dbUser) {
