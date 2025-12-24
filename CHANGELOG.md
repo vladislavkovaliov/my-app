@@ -1,3 +1,16 @@
+# [1.3.0](https://github.com/vladislavkovaliov/my-app/compare/v1.2.0...v1.3.0) (2025-12-24)
+
+
+### Bug Fixes
+
+* uses type from next auth and adds image to user ([#3](https://github.com/vladislavkovaliov/my-app/issues/3)) ([5403cd2](https://github.com/vladislavkovaliov/my-app/commit/5403cd263f46c7d427cc2fffddc2c36c71906c14))
+
+
+### Features
+
+* adds cz-adapter ([#2](https://github.com/vladislavkovaliov/my-app/issues/2)) ([235d0f9](https://github.com/vladislavkovaliov/my-app/commit/235d0f975e3c341f384102a3051234186af3b248))
+* integrates mongodb with next-auth ([5c23f6b](https://github.com/vladislavkovaliov/my-app/commit/5c23f6bdc96247ff91bce51c7b53de69a75790c9))
+
 # [1.2.0](https://github.com/vladislavkovaliov/my-app/compare/v1.1.0...v1.2.0) (2025-12-14)
 
 
