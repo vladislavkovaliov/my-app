@@ -1,13 +1,14 @@
 import { prisma } from '@/lib/prisma';
 import { PrismaClient } from '@/generated/prisma/client';
 import { PrismaService } from '@/services/PrismaService';
+import { Account as NextAuthAccount } from 'next-auth';
 
 export class AccountService extends PrismaService {
     constructor(prisma: PrismaClient) {
         super(prisma);
     }
 
-    createOrUpdateAccount = async (params: UpsertAccountParams) => {
+    createOrUpdateAccount = async (params: NextAuthAccount) => {
         const {
             provider,
             providerAccountId,

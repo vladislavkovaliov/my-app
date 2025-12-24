@@ -48,5 +48,6 @@ model User {
   contactNumber String?
   emailId       String    @unique
   password      String?
+  image         String?
   accounts      Account[]
 }
