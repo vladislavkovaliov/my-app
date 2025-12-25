@@ -49,7 +49,7 @@ export function AppHeader({}: IAppHeaderProps) {
                             return {
                                 ...child,
                                 checked: child.data === lang,
-                                onClick: handleLanguageSwitch(child.data as string),
+                                onSelect: handleLanguageSwitch(child.data as string),
                             };
                         }
 
@@ -68,7 +68,7 @@ export function AppHeader({}: IAppHeaderProps) {
                         key={item.id}
                         disabled={item.disabled}
                         inset={item.inset}
-                        onClick={item.onClick}
+                        onSelect={item.onSelect}
                     >
                         {translate[item.i18n]}
                     </MenubarItem>
@@ -79,7 +79,7 @@ export function AppHeader({}: IAppHeaderProps) {
                     <MenubarCheckboxItem
                         key={item.id}
                         checked={item.checked}
-                        onClick={item.onClick}
+                        onSelect={item.onSelect}
                     >
                         {translate[item.i18n]}
                     </MenubarCheckboxItem>

@@ -12,7 +12,7 @@ export type MenuItem =
           disabled?: boolean;
           inset?: boolean;
           data?: unknown;
-          onClick?: MenuAction;
+          onSelect?: MenuAction;
       }
     | {
           type: 'checkbox';
@@ -20,7 +20,7 @@ export type MenuItem =
           i18n: AppHeaderDictKeys;
           checked?: boolean;
           data?: unknown;
-          onClick?: MenuAction;
+          onSelect?: MenuAction;
       }
     | {
           type: 'submenu';
@@ -28,7 +28,7 @@ export type MenuItem =
           i18n: AppHeaderDictKeys;
           children: MenuItem[];
           data?: unknown;
-          onClick?: MenuAction;
+          onSelect?: MenuAction;
       }
     | {
           type: 'separator';
