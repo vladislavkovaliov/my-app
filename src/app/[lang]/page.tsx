@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import { LanguageSwitcher } from '@/widgets/LanguageSwitcher';
 
 export default function Page() {
     const { data, status } = useSession();
@@ -22,6 +23,7 @@ export default function Page() {
             >
                 Button
             </Button>
+            <LanguageSwitcher />
         </div>
     );
 }
