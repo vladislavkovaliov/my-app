@@ -1,3 +1,12 @@
+# [1.4.0](https://github.com/vladislavkovaliov/my-app/compare/v1.3.0...v1.4.0) (2025-12-25)
+
+
+### Features
+
+* adds lang switcher in menubar ([#6](https://github.com/vladislavkovaliov/my-app/issues/6)) ([3bfba46](https://github.com/vladislavkovaliov/my-app/commit/3bfba4689e52ff570326c58486f6ee775c9845aa))
+* adds language switcher ([#5](https://github.com/vladislavkovaliov/my-app/issues/5)) ([7c75fd4](https://github.com/vladislavkovaliov/my-app/commit/7c75fd414fecd9ff84d35850a186e64ffc346d3a))
+* adds payments data grid ([#4](https://github.com/vladislavkovaliov/my-app/issues/4)) ([459b266](https://github.com/vladislavkovaliov/my-app/commit/459b266232ab2b63fd881ca6c58a68b836119f18))
+
 # [1.3.0](https://github.com/vladislavkovaliov/my-app/compare/v1.2.0...v1.3.0) (2025-12-24)
 
 
