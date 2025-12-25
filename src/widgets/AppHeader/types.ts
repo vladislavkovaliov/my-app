@@ -1,17 +1,44 @@
 import { Dict } from '@/app/[lang]/i18n';
 
-type AppHeaderDictKeys = keyof Dict['widgets']['app-header'];
+export type AppHeaderDictKeys = keyof Dict['widgets']['app-header'];
 
-export interface MenuItemChild {
-    visible: boolean;
-    i18n: AppHeaderDictKeys;
+export type MenuAction = () => void;
+
+export type MenuItem =
+    | {
+          type: 'item';
+          id: string;
+          i18n: AppHeaderDictKeys;
+          disabled?: boolean;
+          inset?: boolean;
+          data?: unknown;
+          onClick?: MenuAction;
+      }
+    | {
+          type: 'checkbox';
+          id: string;
+          i18n: AppHeaderDictKeys;
+          checked?: boolean;
+          data?: unknown;
+          onClick?: MenuAction;
+      }
+    | {
+          type: 'submenu';
+          id: string;
+          i18n: AppHeaderDictKeys;
+          children: MenuItem[];
+          data?: unknown;
+          onClick?: MenuAction;
+      }
+    | {
+          type: 'separator';
+          id: string;
+      };
+
+export type MenuConfigItem = {
     id: string;
-}
-
-export interface MenuItem {
-    id: string;
     i18n: AppHeaderDictKeys;
-    children: MenuItemChild[];
-}
+    items: MenuItem[];
+};
 
-export type MenuConfig = MenuItem[];
+export type MenuConfig = MenuConfigItem[];

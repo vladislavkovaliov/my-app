@@ -1,8 +1,8 @@
 import { match } from '@formatjs/intl-localematcher';
 import Negotiator from 'negotiator';
 
-const locales = ['en-US', 'ru-RU'] as const;
-const defaultLocale = 'en-US';
+export const locales = ['en-US', 'ru-RU'] as const;
+export const defaultLocale = 'en-US';
 
 export function detectLocale(acceptLanguageHeader?: string) {
     const headers = {

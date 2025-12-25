@@ -4,39 +4,108 @@ import {
     Menubar,
     MenubarCheckboxItem,
     MenubarContent,
+    MenubarItem,
     MenubarMenu,
+    MenubarSeparator,
+    MenubarSub,
+    MenubarSubContent,
+    MenubarSubTrigger,
     MenubarTrigger,
 } from '@/components/ui/menubar';
 import { getMenuConfig } from '@/widgets/AppHeader/config';
-import { MenuConfig, MenuItemChild } from './types';
+import { MenuItem } from './types';
 import { useI18n } from '@/AppProviders/I18nProvider';
+import { useCallback, useMemo } from 'react';
+import { useLanguageSwitch } from '@/shared/hooks/useLanguageSwitch';
 
 export interface IAppHeaderProps {}
 
 export function AppHeader({}: IAppHeaderProps) {
-    const menus: MenuConfig = getMenuConfig();
-    const { dict } = useI18n();
+    const { dict, lang } = useI18n();
 
     const translate = dict.widgets['app-header'];
 
+    const languageSwitch = useLanguageSwitch();
+
+    const handleLanguageSwitch = useCallback(
+        (local: string) => () => {
+            languageSwitch(local);
+        },
+        [languageSwitch],
+    );
+
+    const menus = useMemo(() => {
+        return getMenuConfig().map((menu) => ({
+            ...menu,
+            items: menu.items.map((item) => {
+                if (item.type !== 'submenu' || item.id !== 'language') {
+                    return item;
+                }
+
+                return {
+                    ...item,
+                    children: item.children.map((child) => {
+                        if (child.type === 'checkbox') {
+                            return {
+                                ...child,
+                                checked: child.data === lang,
+                                onClick: handleLanguageSwitch(child.data as string),
+                            };
+                        }
+
+                        return child;
+                    }),
+                };
+            }),
+        }));
+    }, [lang, handleLanguageSwitch]);
+
+    const renderItem = (item: MenuItem) => {
+        switch (item.type) {
+            case 'item':
+                return (
+                    <MenubarItem
+                        key={item.id}
+                        disabled={item.disabled}
+                        inset={item.inset}
+                        onClick={item.onClick}
+                    >
+                        {translate[item.i18n]}
+                    </MenubarItem>
+                );
+
+            case 'checkbox':
+                return (
+                    <MenubarCheckboxItem
+                        key={item.id}
+                        checked={item.checked}
+                        onClick={item.onClick}
+                    >
+                        {translate[item.i18n]}
+                    </MenubarCheckboxItem>
+                );
+
+            case 'separator':
+                return <MenubarSeparator key={item.id} />;
+
+            case 'submenu':
+                return (
+                    <MenubarSub key={item.id}>
+                        <MenubarSubTrigger>{translate[item.i18n]}</MenubarSubTrigger>
+                        <MenubarSubContent>{item.children.map(renderItem)}</MenubarSubContent>
+                    </MenubarSub>
+                );
+        }
+    };
+
     return (
         <Menubar>
-            {menus.map(({ id, i18n, children }) => {
-                return (
-                    <MenubarMenu key={id}>
-                        <MenubarTrigger>{translate[i18n]}</MenubarTrigger>
-                        {children
-                            .filter(({ visible }) => visible)
-                            .map(({ id, i18n }: MenuItemChild) => {
-                                return (
-                                    <MenubarContent key={id}>
-                                        <MenubarCheckboxItem>{translate[i18n]}</MenubarCheckboxItem>
-                                    </MenubarContent>
-                                );
-                            })}
-                    </MenubarMenu>
-                );
-            })}
+            {menus.map((menu) => (
+                <MenubarMenu key={menu.id}>
+                    <MenubarTrigger>{translate[menu.i18n]}</MenubarTrigger>
+                    <MenubarContent>{menu.items.map(renderItem)}</MenubarContent>
+                </MenubarMenu>
+            ))}
         </Menubar>
     );
 }

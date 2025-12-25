@@ -4,7 +4,10 @@
             "view": "View",
             "view.table": "Table",
             "profiles": "Profiles",
-            "profiles.logout": "Logout"
+            "profiles.logout": "Logout",
+            "language": "Language",
+            "language.russian": "Russian",
+            "language.english": "English"
         },
         "data-grid": {
             "rows-per-page-label": "Items on page",

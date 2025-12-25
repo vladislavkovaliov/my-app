@@ -1,5 +1,4 @@
 import {
-    ColumnDef,
     getCoreRowModel,
     getFilteredRowModel,
     getPaginationRowModel,
@@ -14,20 +13,14 @@ import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
 import { DataGridTable } from '@/components/ui/data-grid-table';
 import { DataGridPagination } from '@/components/ui/data-grid-pagination';
 import { useI18n } from '@/AppProviders/I18nProvider';
-
-type DataGridProps<T> = {
-    columns: ColumnDef<T>[];
-    data: T[];
-    isLoading: boolean;
-    total: number;
-};
+import { IDataGridProps } from './types';
 
 export function DataGrid<T extends { id: string }>({
     columns,
     data,
     isLoading,
     total,
-}: DataGridProps<T>) {
+}: IDataGridProps<T>) {
     const { dict } = useI18n();
 
     const _dict = dict.widgets['data-grid'];

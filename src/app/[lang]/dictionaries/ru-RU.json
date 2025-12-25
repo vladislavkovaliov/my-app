@@ -3,11 +3,14 @@
         "app-header": {
             "view": "Вид",
             "view.table": "Таблица",
-            "profiles": "Провфиль",
-            "profiles.logout": "Выход"
+            "profiles": "Профиль",
+            "profiles.logout": "Выйти",
+            "language": "Язык",
+            "language.russian": "Русский",
+            "language.english": "Английский"
         },
         "data-grid": {
-            "rows-per-page-label": "Записей на странице",
+            "rows-per-page-label": "Элементов на странице",
             "info": "Всего"
         }
     },
