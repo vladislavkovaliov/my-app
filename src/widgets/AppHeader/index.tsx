@@ -7,9 +7,9 @@ import {
     MenubarMenu,
     MenubarTrigger,
 } from '@/components/ui/menubar';
-import { getMenuConfig } from '@/widgets/app-header/ui/AppHeader/config';
+import { getMenuConfig } from '@/widgets/AppHeader/config';
 import { MenuConfig, MenuItemChild } from './types';
-import { useI18n } from '@/app-providers/I18nProvider';
+import { useI18n } from '@/AppProviders/I18nProvider';
 
 export interface IAppHeaderProps {}
 

@@ -3,8 +3,22 @@
         "app-header": {
             "view": "Вид",
             "view.table": "Таблица",
-            "profiles": "Провиль",
+            "profiles": "Провфиль",
             "profiles.logout": "Выход"
+        },
+        "data-grid": {
+            "rows-per-page-label": "Записей на странице",
+            "info": "Всего"
+        }
+    },
+    "entities": {
+        "payments": {
+            "id": "ID",
+            "amount": "Сумма",
+            "status": "Статус",
+            "type": "Тип",
+            "paidAt": "Дата оплаты",
+            "comment": "Комментарий"
         }
     }
 }
