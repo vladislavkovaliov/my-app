@@ -5,9 +5,8 @@
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
-  provider        = "prisma-client-js"
-  output          = "../src/generated/prisma"
-  previewFeatures = ["mongodb"]
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -35,19 +34,117 @@ model Account {
   id_token          String?
   session_state     String?
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  enrollments Enrollment[]
+  payments    Payment[]
 
   @@unique([provider, providerAccountId])
 }
 
 model User {
-  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  id            String       @id @default(auto()) @map("_id") @db.ObjectId
   firstName     String?
-  lastName      String?   @default("")
+  lastName      String?      @default("")
   gender        Gender?
   contactNumber String?
-  emailId       String    @unique
+  emailId       String       @unique
   password      String?
   image         String?
   accounts      Account[]
+  Enrollment    Enrollment[]
+  Payment       Payment[]
+}
+
+model Course {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  title       String  @unique
+  description String?
+  price       Float
+  currencyId  String  @db.ObjectId
+
+  currency    Currency     @relation(fields: [currencyId], references: [id])
+  enrollments Enrollment[]
+  lessons     Lesson[]
+  Payment     Payment[]
+}
+
+model Enrollment {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @db.ObjectId
+  courseId  String   @db.ObjectId
+  startDate DateTime @default(now())
+  isActive  Boolean  @default(true)
+
+  user      User     @relation(fields: [userId], references: [id])
+  course    Course   @relation(fields: [courseId], references: [id])
+  Account   Account? @relation(fields: [accountId], references: [id])
+  accountId String?  @db.ObjectId
+
+  @@unique([userId, courseId])
+}
+
+model Currency {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  code     String  @unique // BYN, USD, EUR
+  name     String
+  symbol   String?
+  isActive Boolean @default(true)
+
+  payments Payment[]
+  courses  Course[]
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  CANCELED
+}
+
+enum PaymentType {
+  COURSE
+  PACKAGE
+  SINGLE
+}
+
+model Payment {
+  id         String        @id @default(auto()) @map("_id") @db.ObjectId
+  userId     String        @db.ObjectId
+  courseId   String        @db.ObjectId
+  amount     Float
+  currencyId String        @db.ObjectId
+  status     PaymentStatus @default(PAID)
+  type       PaymentType
+  paidAt     DateTime      @default(now())
+  comment    String?
+
+  user           User            @relation(fields: [userId], references: [id])
+  course         Course          @relation(fields: [courseId], references: [id])
+  currency       Currency        @relation(fields: [currencyId], references: [id])
+  lessonPayments LessonPayment[]
+  Account        Account?        @relation(fields: [accountId], references: [id])
+  accountId      String?         @db.ObjectId
+}
+
+model Lesson {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  courseId  String   @db.ObjectId
+  title     String?
+  startTime DateTime
+  endTime   DateTime
+
+  course         Course          @relation(fields: [courseId], references: [id])
+  lessonPayments LessonPayment[]
+}
+
+model LessonPayment {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  lessonId  String   @db.ObjectId
+  paymentId String   @db.ObjectId
+  amount    Float
+  createdAt DateTime @default(now())
+
+  lesson  Lesson  @relation(fields: [lessonId], references: [id])
+  payment Payment @relation(fields: [paymentId], references: [id])
+
+  @@unique([lessonId, paymentId])
 }

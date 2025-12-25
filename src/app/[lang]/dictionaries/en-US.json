@@ -5,6 +5,20 @@
             "view.table": "Table",
             "profiles": "Profiles",
             "profiles.logout": "Logout"
+        },
+        "data-grid": {
+            "rows-per-page-label": "Items on page",
+            "info": "Total"
+        }
+    },
+    "entities": {
+        "payments": {
+            "id": "ID",
+            "amount": "Amount",
+            "status": "Status",
+            "type": "Type",
+            "paidAt": "Paid at",
+            "comment": "Comment"
         }
     }
 }
