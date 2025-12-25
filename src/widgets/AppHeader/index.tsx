@@ -17,6 +17,7 @@ import { MenuItem } from './types';
 import { useI18n } from '@/AppProviders/I18nProvider';
 import { useCallback, useMemo } from 'react';
 import { useLanguageSwitch } from '@/shared/hooks/useLanguageSwitch';
+import { assertNever } from '@/shared/helpers/assertNever';
 
 export interface IAppHeaderProps {}
 
@@ -95,6 +96,9 @@ export function AppHeader({}: IAppHeaderProps) {
                         <MenubarSubContent>{item.children.map(renderItem)}</MenubarSubContent>
                     </MenubarSub>
                 );
+
+            default:
+                return assertNever(item);
         }
     };
 
