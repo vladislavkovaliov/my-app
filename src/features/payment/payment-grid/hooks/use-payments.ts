@@ -8,7 +8,7 @@ export const usePayments = () => {
 
     const userEmail = session?.user?.email;
 
-    return useQuery<{ total: number; data: Payment[] }, Error>({
+    return useQuery<{ total: number; data: Payment[] }>({
         queryKey: ['payments', userEmail],
         queryFn: () => {
             if (!userEmail) {

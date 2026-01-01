@@ -8,10 +8,10 @@ import { format } from 'date-fns';
 import { Calendar } from '@/components/ui/calendar';
 import { useI18n } from '@/app-providers/i-18n-provider';
 
-type IPaymentPaidAtFieldProps<TFormValues extends FieldValues> = {
+interface IPaymentPaidAtFieldProps<TFormValues extends FieldValues> {
     control: Control<TFormValues>;
     name: Path<TFormValues>;
-};
+}
 
 export function PaymentPaidAtField<TFormValues extends FieldValues>({
     control,

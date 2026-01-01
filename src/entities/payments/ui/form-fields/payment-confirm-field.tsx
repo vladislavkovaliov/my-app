@@ -11,10 +11,10 @@ import { Control, FieldValues, Path } from 'react-hook-form';
 import { Checkbox } from '@/components/ui/checkbox';
 import { useI18n } from '@/app-providers/i-18n-provider';
 
-type IPaymentConfirmFieldProps<TFormValues extends FieldValues> = {
+interface IPaymentConfirmFieldProps<TFormValues extends FieldValues> {
     control: Control<TFormValues>;
     name: Path<TFormValues>;
-};
+}
 
 export function PaymentConfirmField<TFormValues extends FieldValues>({
     control,

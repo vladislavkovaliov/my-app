@@ -11,10 +11,10 @@ import * as React from 'react';
 import { Control, FieldValues, Path } from 'react-hook-form';
 import { useI18n } from '@/app-providers/i-18n-provider';
 
-type IPaymentAmountFieldProps<TFormValues extends FieldValues> = {
+interface IPaymentAmountFieldProps<TFormValues extends FieldValues> {
     control: Control<TFormValues>;
     name: Path<TFormValues>;
-};
+}
 
 export function PaymentAmountField<TFormValues extends FieldValues>({
     control,
