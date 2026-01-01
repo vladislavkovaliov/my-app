@@ -7,7 +7,7 @@ export const usePaymentForm = () => {
     return useForm<PaymentFormValues>({
         resolver: zodResolver(paymentSchema),
         defaultValues: {
-            amount: '',
+            amount: 0,
             confirmPayment: false,
             paidAt: null,
         },
