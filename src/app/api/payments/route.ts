@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 export async function GET(req: NextRequest) {
     try {
-        const email = req.nextUrl.searchParams.get('email') || 'no-email@gmail.com';
+        const email = req.nextUrl.searchParams.get('email') ?? 'no-email@gmail.com';
 
         const user = await prisma.user.findUnique({
             where: { emailId: email },

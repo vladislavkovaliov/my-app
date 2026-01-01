@@ -50,7 +50,7 @@ export function PaymentPaidAtField<TFormValues extends FieldValues>({
                                         variant="dim"
                                         size="sm"
                                         className="absolute top-1/2 -end-0 -translate-y-1/2"
-                                        onClick={() => field.onChange(null)}
+                                        onClick={() => field.onChange(undefined)}
                                     >
                                         <X />
                                     </Button>

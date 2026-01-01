@@ -1,14 +1,14 @@
 import { notFound } from 'next/navigation';
 import { getDictionary, hasLocale } from './dictionaries';
-import { I18nProvider } from '../../app-providers';
-import { AppHeader } from '../../widgets/app-header';
+import { I18nProvider } from '@/app-providers';
+import { AppHeader } from '@/widgets/app-header';
 
 export default async function LangLayout({
     children,
     params,
 }: Readonly<{
     children: React.ReactNode;
-    params: { lang: string };
+    params: Promise<{ lang: string }>;
 }>) {
     const { lang } = await params;
 
