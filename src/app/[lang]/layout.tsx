@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { getDictionary, hasLocale } from './dictionaries';
-import { I18nProvider } from '@/AppProviders';
-import { AppHeader } from '@/widgets/AppHeader';
+import { I18nProvider } from '../../app-providers';
+import { AppHeader } from '../../widgets/app-header';
 
 export default async function LangLayout({
     children,

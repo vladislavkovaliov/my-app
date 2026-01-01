@@ -6,7 +6,7 @@ import { Payment } from '@/entities/payments/model/payment';
 import { Dict } from '@/app/[lang]/i18n';
 
 export function getColumns({ dict }: { dict: Dict }) {
-    const _dict = dict.entities.payments;
+    const _dict = dict.features['payment-grid'];
 
     return [
         {

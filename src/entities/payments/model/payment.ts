@@ -32,3 +32,10 @@ export type Payment = {
     createdAt?: string;
     updatedAt?: string;
 };
+
+//
+// Request params
+//
+export interface IPaymentParams {
+    email: string;
+}

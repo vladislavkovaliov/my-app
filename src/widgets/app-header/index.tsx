@@ -12,9 +12,9 @@ import {
     MenubarSubTrigger,
     MenubarTrigger,
 } from '@/components/ui/menubar';
-import { getMenuConfig } from '@/widgets/AppHeader/config';
+import { getMenuConfig } from '@/widgets/app-header/config';
 import { MenuItem } from './types';
-import { useI18n } from '@/AppProviders/I18nProvider';
+import { useI18n } from '../../app-providers/i-18n-provider';
 import { useCallback, useMemo } from 'react';
 import { useLanguageSwitch } from '@/shared/hooks/useLanguageSwitch';
 import { assertNever } from '@/shared/helpers/assertNever';

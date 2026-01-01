@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
-import { DataGrid } from '@/widgets/DataGrid';
+import { DataGrid } from '@/widgets/data-grid';
 
 import { getColumns } from './colums';
-import { useI18n } from '@/AppProviders/I18nProvider';
-import { usePayments } from '@/entities/payments/hooks/usePayments';
+import { useI18n } from '@/app-providers/i-18n-provider';
+import { usePayments } from '@/features/payment/payment-grid/hooks/use-payments';
 
 export interface IPaymentsGridProps {}
 
