@@ -1,6 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
 import { getPayments } from '@/entities/payments/api/payment-api';
-import { Payment } from '@/entities/payments/model/payment';
 import { useSession } from 'next-auth/react';
 
 export const usePayments = () => {
@@ -8,7 +7,7 @@ export const usePayments = () => {
 
     const userEmail = session?.user?.email;
 
-    return useQuery<{ total: number; data: Payment[] }>({
+    return useQuery({
         queryKey: ['payments', userEmail],
         queryFn: () => {
             if (!userEmail) {
