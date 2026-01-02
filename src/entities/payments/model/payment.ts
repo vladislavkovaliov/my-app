@@ -1,3 +1,5 @@
+import { Course as ICourse, Currency as ICurrency, Payment as IPayment } from '@/generated/prisma';
+
 export type Lesson = {
     id: string;
     startTime: string;
@@ -24,7 +26,7 @@ export type Currency = {
 export type Payment = {
     id: string;
     amount: number;
-    type: 'PACKAGE' | 'SINGLE'; // можно расширить
+    type: 'PACKAGE' | 'SINGLE';
     userId: string;
     course: Course;
     currency: Currency;
@@ -38,4 +40,11 @@ export type Payment = {
 //
 export interface IPaymentParams {
     email: string;
+}
+
+export interface ICreatePaymentBody {
+    amount: IPayment['amount'];
+    courseId: ICourse['id'];
+    currencyId: ICurrency['id'];
+    paidAt: IPayment['paidAt'];
 }

@@ -1,11 +1,18 @@
+import { useMemo } from 'react';
+import * as React from 'react';
+import { Button } from '@/components/ui/button';
+import { Form } from '@/components/ui/form';
+import { useI18n } from '@/app-providers/i-18n-provider';
+import { useCoursesList } from '@/features/payment/payment-sheet-create/hooks/use-courses-list';
+import { useCurrenciesList } from '@/features/payment/payment-sheet-create/hooks/use-currencies-list';
+import { useCreatePayment } from '@/features/payment/payment-sheet-create/hooks/use-create-payment';
 import { PaymentAmountField } from '@/entities/payments/ui/form-fields/payment-amount-field';
 import { PaymentConfirmField } from '@/entities/payments/ui/form-fields/payment-confirm-field';
 import { PaymentPaidAtField } from '@/entities/payments/ui/form-fields/payment-paid-at-field';
-import { Button } from '@/components/ui/button';
-import { Form } from '@/components/ui/form';
-import * as React from 'react';
+import { CurrenciesField } from '@/entities/currencies/ui/form-fields/currencies-field';
+import { CoursesField } from '@/entities/courses/ui/form-fields/courses-field';
+
 import { usePaymentForm } from '../hooks/use-payment-form';
-import { useI18n } from '@/app-providers/i-18n-provider';
 
 export interface IPaymentsFormProps {
     onSuccess: () => void;
@@ -15,7 +22,39 @@ export interface IPaymentsFormProps {
 export function PaymentForm({ onSuccess, onCancel }: IPaymentsFormProps) {
     const { dict } = useI18n();
 
+    const { data: coursesData } = useCoursesList();
+
+    const { data: currenciesData } = useCurrenciesList();
+
+    const { mutateAsync } = useCreatePayment();
+
     const form = usePaymentForm();
+
+    const courses = useMemo(() => {
+        if (!coursesData) {
+            return [];
+        }
+
+        return coursesData.data.map((course) => {
+            return {
+                value: course.id,
+                label: course.title,
+            };
+        });
+    }, [coursesData]);
+
+    const currencies = useMemo(() => {
+        if (!currenciesData) {
+            return [];
+        }
+
+        return currenciesData.data.map((currency) => {
+            return {
+                value: currency.id,
+                label: currency.name,
+            };
+        });
+    }, [currenciesData]);
 
     const handleCancelCallback = () => {
         onCancel();
@@ -38,6 +77,15 @@ export function PaymentForm({ onSuccess, onCancel }: IPaymentsFormProps) {
 
         console.log(form.getValues());
 
+        const { amount, paidAt, courseId, currencyId } = form.getValues();
+
+        await mutateAsync({
+            amount: Number(amount),
+            paidAt: paidAt,
+            courseId: courseId,
+            currencyId: currencyId,
+        });
+
         onSuccess();
     };
 
@@ -47,6 +95,8 @@ export function PaymentForm({ onSuccess, onCancel }: IPaymentsFormProps) {
                 <PaymentAmountField control={form.control} name="amount" />
                 <PaymentConfirmField control={form.control} name="confirmPayment" />
                 <PaymentPaidAtField control={form.control} name="paidAt" />
+                <CoursesField control={form.control} name="courseId" courses={courses} />
+                <CurrenciesField control={form.control} name="currencyId" currencies={currencies} />
                 <div className="flex justify-end gap-2">
                     <Button type="button" variant="outline" onClick={handleCancelCallback}>
                         {dict.features['payment-form'].cancel}

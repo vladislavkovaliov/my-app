@@ -8,7 +8,13 @@ export const paymentSchema = z.object({
     // }),
     amount: z.coerce.number<number>(),
     confirmPayment: z.boolean(),
-    paidAt: z.date().nullable(),
+    paidAt: z.date(),
+    courseId: z.string({
+        message: 'courseId is required',
+    }),
+    currencyId: z.string({
+        message: 'currencyId is required',
+    }),
 });
 
 export type PaymentFormValues = z.infer<typeof paymentSchema>;

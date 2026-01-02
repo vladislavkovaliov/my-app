@@ -9,7 +9,9 @@ export const usePaymentForm = () => {
         defaultValues: {
             amount: 0,
             confirmPayment: false,
-            paidAt: null,
+            paidAt: new Date(),
+            courseId: undefined,
+            currencyId: undefined,
         },
     });
 };
