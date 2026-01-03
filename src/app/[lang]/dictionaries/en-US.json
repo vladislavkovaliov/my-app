@@ -15,13 +15,43 @@
         }
     },
     "entities": {
-        "payments": {
+        "form-fields": {
+            "payment": {
+                "amount": {
+                    "label": "Input amount:",
+                    "placeholder": "Amount",
+                    "description": "Enter your amount to proceed"
+                },
+                "confirm": {
+                    "label": "Payments correct?",
+                    "description": "You need to agree to proceed."
+                },
+                "paid-at": {
+                    "label": "Pick a date"
+                }
+            }
+        }
+    },
+    "features": {
+        "payment-grid": {
             "id": "ID",
             "amount": "Amount",
             "status": "Status",
             "type": "Type",
             "paidAt": "Paid at",
             "comment": "Comment"
+        },
+        "payment": {
+            "sheet": {
+                "trigger": "Open Sheet",
+                "title": "Quick Payment",
+                "description": "Share your payments details."
+            }
+        },
+        "payment-form": {
+            "cancel": "Cancel",
+            "reset": "Reset",
+            "submit": "Submit"
         }
     }
 }

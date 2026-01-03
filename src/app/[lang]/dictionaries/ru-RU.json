@@ -1,9 +1,9 @@
 {
     "widgets": {
         "app-header": {
-            "view": "Вид",
+            "view": "Просмотр",
             "view.table": "Таблица",
-            "profiles": "Профиль",
+            "profiles": "Профили",
             "profiles.logout": "Выйти",
             "language": "Язык",
             "language.russian": "Русский",
@@ -15,13 +15,43 @@
         }
     },
     "entities": {
-        "payments": {
+        "form-fields": {
+            "payment": {
+                "amount": {
+                    "label": "Введите сумму:",
+                    "placeholder": "Сумма",
+                    "description": "Введите вашу сумму для продолжения"
+                },
+                "confirm": {
+                    "label": "Платежи верны?",
+                    "description": "Необходимо подтвердить для продолжения."
+                },
+                "paid-at": {
+                    "label": "Выберите дату"
+                }
+            }
+        }
+    },
+    "features": {
+        "payment-grid": {
             "id": "ID",
             "amount": "Сумма",
             "status": "Статус",
             "type": "Тип",
             "paidAt": "Дата оплаты",
             "comment": "Комментарий"
+        },
+        "payment": {
+            "sheet": {
+                "trigger": "Открыть форму",
+                "title": "Быстрый платеж",
+                "description": "Поделитесь данными о платеже."
+            }
+        },
+        "payment-form": {
+            "cancel": "Отмена",
+            "reset": "Сброс",
+            "submit": "Отправить"
         }
     }
 }

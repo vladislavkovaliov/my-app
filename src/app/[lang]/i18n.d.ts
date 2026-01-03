@@ -5,7 +5,7 @@ type Primitive = string | number | boolean | null | undefined;
 export type DeepKeys<T> = {
     [K in keyof T & string]: T[K] extends Primitive
         ? K
-        : T[K] extends Record<string, any>
+        : T[K] extends Record<string, never>
           ? `${K}.${DeepKeys<T[K]>}`
           : K;
 }[keyof T & string];

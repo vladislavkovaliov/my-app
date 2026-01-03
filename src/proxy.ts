@@ -1,7 +1,8 @@
-import { type NextRequest, NextResponse } from 'next/server';
-import { cookies } from 'next/headers';
-import { detectLocale } from '@/shared/lib/i18n/detectLocale';
 import { getToken } from 'next-auth/jwt';
+import { cookies } from 'next/headers';
+import { type NextRequest, NextResponse } from 'next/server';
+
+import { detectLocale } from '@/shared/lib/i18n/detectLocale';
 
 const LOCALES = ['en-US', 'ru-RU'];
 

@@ -1,10 +1,11 @@
 import NextAuth from 'next-auth';
 import { Session, SignInParams, AuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
+
 import { getGoogleProviderConfig, HOUR } from '@/app/api/auth/[...nextauth]/config';
 import { getAccountService, getUserService } from '@/services';
 
-const authOptions = {
+export const authOptions = {
     providers: [GoogleProvider(getGoogleProviderConfig())],
     callbacks: {
         async signIn({ user, account, profile }: SignInParams) {
@@ -39,6 +40,19 @@ const authOptions = {
             }
 
             return true;
+        },
+        async jwt({ token }) {
+            if (!token.email) return token;
+
+            const dbUser = await getUserService().findUnique({
+                email: token.email,
+            });
+
+            if (dbUser) {
+                token.id = dbUser.id;
+            }
+
+            return token;
         },
         async session({ session }: { session: Session }) {
             if (session.user?.email) {

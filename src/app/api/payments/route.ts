@@ -1,11 +1,12 @@
-import { PrismaClient } from '@/generated/prisma';
+import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
 
-const prisma = new PrismaClient();
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { prisma } from '@/lib/prisma';
 
 export async function GET(req: NextRequest) {
     try {
-        const email = req.nextUrl.searchParams.get('email');
+        const email = req.nextUrl.searchParams.get('email') ?? 'no-email@gmail.com';
 
         const user = await prisma.user.findUnique({
             where: { emailId: email },
@@ -34,4 +35,26 @@ export async function GET(req: NextRequest) {
         console.error(err);
         return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
     }
+}
+
+export async function POST(req: Request) {
+    const session = await getServerSession(authOptions);
+
+    if (!session) return Response.json({ error: 'Unauthorized' }, { status: 401 });
+
+    const body = await req.json();
+
+    const payment = await prisma.payment.create({
+        data: {
+            amount: body.amount,
+            type: 'PACKAGE',
+            status: 'PENDING',
+            paidAt: new Date(body.paidAt),
+            user: { connect: { id: session.user.id } },
+            course: { connect: { id: body.courseId } },
+            currency: { connect: { id: body.currencyId } },
+        },
+    });
+
+    return Response.json(payment);
 }
