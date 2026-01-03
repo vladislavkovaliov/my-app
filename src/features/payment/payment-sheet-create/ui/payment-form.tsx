@@ -1,16 +1,17 @@
 import { useMemo } from 'react';
 import * as React from 'react';
+
+import { useI18n } from '@/app-providers/i-18n-provider';
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
-import { useI18n } from '@/app-providers/i-18n-provider';
-import { useCoursesList } from '@/features/payment/payment-sheet-create/hooks/use-courses-list';
-import { useCurrenciesList } from '@/features/payment/payment-sheet-create/hooks/use-currencies-list';
-import { useCreatePayment } from '@/features/payment/payment-sheet-create/hooks/use-create-payment';
+import { CoursesField } from '@/entities/courses/ui/form-fields/courses-field';
+import { CurrenciesField } from '@/entities/currencies/ui/form-fields/currencies-field';
 import { PaymentAmountField } from '@/entities/payments/ui/form-fields/payment-amount-field';
 import { PaymentConfirmField } from '@/entities/payments/ui/form-fields/payment-confirm-field';
 import { PaymentPaidAtField } from '@/entities/payments/ui/form-fields/payment-paid-at-field';
-import { CurrenciesField } from '@/entities/currencies/ui/form-fields/currencies-field';
-import { CoursesField } from '@/entities/courses/ui/form-fields/courses-field';
+import { useCoursesList } from '@/features/payment/payment-sheet-create/hooks/use-courses-list';
+import { useCreatePayment } from '@/features/payment/payment-sheet-create/hooks/use-create-payment';
+import { useCurrenciesList } from '@/features/payment/payment-sheet-create/hooks/use-currencies-list';
 
 import { usePaymentForm } from '../hooks/use-payment-form';
 
@@ -64,11 +65,11 @@ export function PaymentForm({ onSuccess, onCancel }: IPaymentsFormProps) {
         form.reset();
     };
 
-    const handlePaidAtResetCallback = () => {
+    const _handlePaidAtResetCallback = () => {
         console.log('handlePaidAtResetCallback');
     };
 
-    const handlePaidAtSelectCallback = (newDate: Date) => {
+    const _handlePaidAtSelectCallback = (newDate: Date) => {
         console.log('handlePaidAtSelectCallback', newDate);
     };
 

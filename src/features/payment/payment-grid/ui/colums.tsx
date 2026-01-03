@@ -1,9 +1,10 @@
-import { format } from 'date-fns';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { Skeleton } from '@/components/ui/skeleton';
 import { CellContext } from '@tanstack/table-core';
-import { Payment } from '@/entities/payments/model/payment';
+import { format } from 'date-fns';
+
 import { Dict } from '@/app/[lang]/i18n';
+import { Skeleton } from '@/components/ui/skeleton';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { Payment } from '@/entities/payments/model/payment';
 
 export function getColumns({ dict }: { dict: Dict }) {
     const _dict = dict.features['payment-grid'];

@@ -1,7 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import { useSession } from 'next-auth/react';
-import { Currency as ICurrency } from '@/generated/prisma';
+
 import { getCurrencies } from '@/entities/currencies/api/get-currencies-api';
+import { Currency as ICurrency } from '@/generated/prisma';
 
 export const useCurrenciesList = () => {
     const { data: session } = useSession();

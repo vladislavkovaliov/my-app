@@ -1,7 +1,8 @@
 'use client';
 
 import * as React from 'react';
-import { cn } from '@/lib/utils';
+import { Control, FieldValues, Path } from 'react-hook-form';
+
 import { Button, ButtonArrow } from '@/components/ui/button';
 import {
     Command,
@@ -14,8 +15,8 @@ import {
 } from '@/components/ui/command';
 import { FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { Control, FieldValues, Path } from 'react-hook-form';
 import { Course as ICourse } from '@/generated/prisma';
+import { cn } from '@/lib/utils';
 
 export interface ICoursesFieldProps<TFormValues extends FieldValues> {
     control: Control<TFormValues>;

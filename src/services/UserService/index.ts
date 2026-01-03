@@ -1,7 +1,8 @@
-import { prisma } from '@/lib/prisma';
-import { PrismaClient } from '@/generated/prisma/client';
-import { PrismaService } from '@/services/PrismaService';
 import { User as NextAuthUser } from 'next-auth';
+
+import { PrismaClient } from '@/generated/prisma/client';
+import { prisma } from '@/lib/prisma';
+import { PrismaService } from '@/services/PrismaService';
 
 export class UserService extends PrismaService {
     constructor(prisma: PrismaClient) {

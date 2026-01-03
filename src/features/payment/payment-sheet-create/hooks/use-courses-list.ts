@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import { getCourses } from '@/entities/courses/api/get-courses-api';
 import { useSession } from 'next-auth/react';
+
+import { getCourses } from '@/entities/courses/api/get-courses-api';
 import { Course as ICourse } from '@/generated/prisma';
 
 export const useCoursesList = () => {

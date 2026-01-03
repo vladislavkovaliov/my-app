@@ -8,11 +8,13 @@ import {
     useReactTable,
 } from '@tanstack/react-table';
 import { useState } from 'react';
+
+import { useI18n } from '@/app-providers/i-18n-provider';
 import { DataGridContainer, DataGrid as _DataGrid } from '@/components/ui/data-grid';
-import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
-import { DataGridTable } from '@/components/ui/data-grid-table';
 import { DataGridPagination } from '@/components/ui/data-grid-pagination';
-import { useI18n } from '../../app-providers/i-18n-provider';
+import { DataGridTable } from '@/components/ui/data-grid-table';
+import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
+
 import { IDataGridProps } from './types';
 
 export function DataGrid<T extends { id: string }>({

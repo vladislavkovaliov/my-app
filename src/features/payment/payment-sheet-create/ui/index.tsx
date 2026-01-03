@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { PaymentSheet } from './payment-sheet';
+
 import { PaymentForm } from './payment-form';
+import { PaymentSheet } from './payment-sheet';
 
 export interface IPaymentsSheetCreateProps {}
 

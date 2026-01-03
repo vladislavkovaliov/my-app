@@ -1,3 +1,7 @@
+import * as React from 'react';
+import { Control, FieldValues, Path } from 'react-hook-form';
+
+import { useI18n } from '@/app-providers/i-18n-provider';
 import {
     FormControl,
     FormDescription,
@@ -7,9 +11,6 @@ import {
     FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import * as React from 'react';
-import { Control, FieldValues, Path } from 'react-hook-form';
-import { useI18n } from '@/app-providers/i-18n-provider';
 
 interface IPaymentAmountFieldProps<TFormValues extends FieldValues> {
     control: Control<TFormValues>;

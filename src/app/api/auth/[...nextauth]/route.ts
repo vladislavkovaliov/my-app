@@ -1,6 +1,7 @@
 import NextAuth from 'next-auth';
 import { Session, SignInParams, AuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
+
 import { getGoogleProviderConfig, HOUR } from '@/app/api/auth/[...nextauth]/config';
 import { getAccountService, getUserService } from '@/services';
 

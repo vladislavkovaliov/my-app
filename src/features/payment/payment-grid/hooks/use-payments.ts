@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import { getPayments } from '@/entities/payments/api/payment-api';
 import { useSession } from 'next-auth/react';
+
+import { getPayments } from '@/entities/payments/api/payment-api';
 
 export const usePayments = () => {
     const { data: session } = useSession();

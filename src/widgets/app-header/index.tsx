@@ -1,5 +1,7 @@
 'use client';
 
+import { useCallback, useMemo } from 'react';
+
 import {
     Menubar,
     MenubarCheckboxItem,
@@ -12,12 +14,12 @@ import {
     MenubarSubTrigger,
     MenubarTrigger,
 } from '@/components/ui/menubar';
-import { getMenuConfig } from '@/widgets/app-header/config';
-import { MenuItem } from './types';
-import { useI18n } from '../../app-providers/i-18n-provider';
-import { useCallback, useMemo } from 'react';
-import { useLanguageSwitch } from '@/shared/hooks/useLanguageSwitch';
 import { assertNever } from '@/shared/helpers/assertNever';
+import { useLanguageSwitch } from '@/shared/hooks/useLanguageSwitch';
+import { getMenuConfig } from '@/widgets/app-header/config';
+
+import { useI18n } from '../../app-providers/i-18n-provider';
+import { MenuItem } from './types';
 
 export interface IAppHeaderProps {}
 

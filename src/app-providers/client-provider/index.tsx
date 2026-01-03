@@ -1,8 +1,8 @@
 'use client';
 
-import { NextAuthProvider } from '../session-provider';
-
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+import { NextAuthProvider } from '../session-provider';
 
 const queryClient = new QueryClient();
 

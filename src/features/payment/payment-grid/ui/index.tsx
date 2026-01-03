@@ -1,9 +1,10 @@
 import { useMemo } from 'react';
+
+import { useI18n } from '@/app-providers/i-18n-provider';
+import { usePayments } from '@/features/payment/payment-grid/hooks/use-payments';
 import { DataGrid } from '@/widgets/data-grid';
 
 import { getColumns } from './colums';
-import { useI18n } from '@/app-providers/i-18n-provider';
-import { usePayments } from '@/features/payment/payment-grid/hooks/use-payments';
 
 export interface IPaymentsGridProps {}
 
