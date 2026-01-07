@@ -35,6 +35,9 @@ export type Payment = {
     updatedAt?: string;
 };
 
+export const ALLOWED_STATUSES = ['PENDING', 'PAID', 'CANCELED'] as const;
+export type PaymentStatus = (typeof ALLOWED_STATUSES)[number];
+
 //
 // Request params
 //
@@ -47,4 +50,13 @@ export interface ICreatePaymentBody {
     courseId: ICourse['id'];
     currencyId: ICurrency['id'];
     paidAt: IPayment['paidAt'];
+}
+
+export interface IUpdatePaymentBody {
+    paymentId: IPayment['id'];
+    amount?: IPayment['amount'];
+    courseId?: ICourse['id'];
+    currencyId?: ICurrency['id'];
+    paidAt?: IPayment['paidAt'];
+    status?: PaymentStatus;
 }

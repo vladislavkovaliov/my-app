@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import * as React from 'react';
+import { useWatch } from 'react-hook-form';
 
 import { useI18n } from '@/app-providers/i-18n-provider';
 import { Button } from '@/components/ui/button';
@@ -31,6 +32,8 @@ export function PaymentForm({ onSuccess, onCancel }: IPaymentsFormProps) {
 
     const form = usePaymentForm();
 
+    const confirmPayment = useWatch({ name: 'confirmPayment', control: form.control });
+
     const courses = useMemo(() => {
         if (!coursesData) {
             return [];
@@ -57,6 +60,9 @@ export function PaymentForm({ onSuccess, onCancel }: IPaymentsFormProps) {
         });
     }, [currenciesData]);
 
+    const { courseId, currencyId, amount } = form.getValues();
+    const disableSubmitButton = !confirmPayment || !courseId || !currencyId || !(amount > 0);
+
     const handleCancelCallback = () => {
         onCancel();
     };
@@ -76,8 +82,6 @@ export function PaymentForm({ onSuccess, onCancel }: IPaymentsFormProps) {
     const onSubmit = async () => {
         await new Promise((r) => setTimeout(r, 500));
 
-        console.log(form.getValues());
-
         const { amount, paidAt, courseId, currencyId } = form.getValues();
 
         await mutateAsync({
@@ -92,12 +96,12 @@ export function PaymentForm({ onSuccess, onCancel }: IPaymentsFormProps) {
 
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="w-80 space-y-6">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
                 <PaymentAmountField control={form.control} name="amount" />
-                <PaymentConfirmField control={form.control} name="confirmPayment" />
                 <PaymentPaidAtField control={form.control} name="paidAt" />
                 <CoursesField control={form.control} name="courseId" courses={courses} />
                 <CurrenciesField control={form.control} name="currencyId" currencies={currencies} />
+                <PaymentConfirmField control={form.control} name="confirmPayment" />
                 <div className="flex justify-end gap-2">
                     <Button type="button" variant="outline" onClick={handleCancelCallback}>
                         {dict.features['payment-form'].cancel}
@@ -105,7 +109,9 @@ export function PaymentForm({ onSuccess, onCancel }: IPaymentsFormProps) {
                     <Button type="button" variant="outline" onClick={handleResetCallback}>
                         {dict.features['payment-form'].reset}
                     </Button>
-                    <Button type="submit">{dict.features['payment-form'].submit}</Button>
+                    <Button type="submit" disabled={disableSubmitButton}>
+                        {dict.features['payment-form'].submit}
+                    </Button>
                 </div>
             </form>
         </Form>

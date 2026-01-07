@@ -1,8 +1,9 @@
-import { IPaymentParams, Payment } from '@/entities/payments/model/payment';
+import { IPaymentParams } from '@/entities/payments/model/payment';
+import { Payment as IPayment } from '@/generated/prisma';
 
 export const getPayments = async ({
     email,
-}: IPaymentParams): Promise<{ total: number; data: Payment[] }> => {
+}: IPaymentParams): Promise<{ total: number; data: IPayment[] }> => {
     const params = new URLSearchParams();
 
     params.set('email', email);

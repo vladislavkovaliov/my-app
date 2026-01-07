@@ -1,8 +1,8 @@
-import { ICreatePaymentBody } from '@/entities/payments/model/payment';
+import { IUpdatePaymentBody } from '@/entities/payments/model/payment';
 
-export const createPayment = async ({ ...rest }: ICreatePaymentBody) => {
+export const updatePayment = async ({ ...rest }: IUpdatePaymentBody) => {
     const res = await fetch('/api/payments', {
-        method: 'POST',
+        method: 'PATCH',
         body: JSON.stringify(rest),
     });
 

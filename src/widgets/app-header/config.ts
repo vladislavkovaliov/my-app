@@ -53,4 +53,15 @@ export const getMenuConfig = (): MenuConfig => [
             },
         ],
     },
+    {
+        id: 'payment',
+        i18n: 'payment',
+        items: [
+            {
+                type: 'item',
+                id: 'payment-create',
+                i18n: 'payment.create',
+            },
+        ],
+    },
 ];
