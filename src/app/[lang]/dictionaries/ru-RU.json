@@ -1,13 +1,15 @@
 {
     "widgets": {
         "app-header": {
-            "view": "Просмотр",
+            "view": "Вид",
             "view.table": "Таблица",
             "profiles": "Профили",
             "profiles.logout": "Выйти",
             "language": "Язык",
             "language.russian": "Русский",
-            "language.english": "Английский"
+            "language.english": "Английский",
+            "payment": "Платежи",
+            "payment.create": "Создать платёж"
         },
         "data-grid": {
             "rows-per-page-label": "Элементов на странице",
@@ -20,11 +22,11 @@
                 "amount": {
                     "label": "Введите сумму:",
                     "placeholder": "Сумма",
-                    "description": "Введите вашу сумму для продолжения"
+                    "description": "Введите сумму для продолжения"
                 },
                 "confirm": {
-                    "label": "Платежи верны?",
-                    "description": "Необходимо подтвердить для продолжения."
+                    "label": "Платёж подтверждён?",
+                    "description": "Для продолжения необходимо согласие."
                 },
                 "paid-at": {
                     "label": "Выберите дату"
@@ -43,14 +45,14 @@
         },
         "payment": {
             "sheet": {
-                "trigger": "Открыть форму",
-                "title": "Быстрый платеж",
-                "description": "Поделитесь данными о платеже."
+                "trigger": "Открыть панель",
+                "title": "Быстрый платёж",
+                "description": "Укажите данные для оплаты."
             }
         },
         "payment-form": {
             "cancel": "Отмена",
-            "reset": "Сброс",
+            "reset": "Сбросить",
             "submit": "Отправить"
         }
     }

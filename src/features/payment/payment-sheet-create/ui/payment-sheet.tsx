@@ -2,7 +2,6 @@ import { useDirection } from '@radix-ui/react-direction';
 import * as React from 'react';
 
 import { useI18n } from '@/app-providers/i-18n-provider';
-import { Button } from '@/components/ui/button';
 import {
     Sheet,
     SheetBody,
@@ -10,7 +9,6 @@ import {
     SheetDescription,
     SheetHeader,
     SheetTitle,
-    SheetTrigger,
 } from '@/components/ui/sheet';
 
 export interface IPaymentsSheetCreateProps {
@@ -26,9 +24,6 @@ export function PaymentSheet({ children, open, onOpenChange }: IPaymentsSheetCre
 
     return (
         <Sheet open={open} onOpenChange={onOpenChange}>
-            <SheetTrigger asChild>
-                <Button variant="outline">{dict.features.payment.sheet.trigger}</Button>
-            </SheetTrigger>
             <SheetContent dir={direction}>
                 <SheetHeader>
                     <SheetTitle>{dict.features.payment.sheet.title}</SheetTitle>

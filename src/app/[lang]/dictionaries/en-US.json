@@ -7,7 +7,9 @@
             "profiles.logout": "Logout",
             "language": "Language",
             "language.russian": "Russian",
-            "language.english": "English"
+            "language.english": "English",
+            "payment": "Payment",
+            "payment.create": "Create payment"
         },
         "data-grid": {
             "rows-per-page-label": "Items on page",

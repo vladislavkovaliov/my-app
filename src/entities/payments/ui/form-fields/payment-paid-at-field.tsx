@@ -28,7 +28,7 @@ export function PaymentPaidAtField<TFormValues extends FieldValues>({
                 return (
                     <Popover>
                         <PopoverTrigger asChild>
-                            <div className="relative w-[250px]">
+                            <div className="relative w-full">
                                 <Button
                                     type="button"
                                     variant="outline"

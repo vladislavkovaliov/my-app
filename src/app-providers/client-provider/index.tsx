@@ -2,6 +2,7 @@
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
+import { PaymentSheetCreateProvider } from '../payment-sheet-create-provider';
 import { NextAuthProvider } from '../session-provider';
 
 const queryClient = new QueryClient();
@@ -13,7 +14,9 @@ export function ClientProvider({
 }>) {
     return (
         <NextAuthProvider>
-            <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+            <QueryClientProvider client={queryClient}>
+                <PaymentSheetCreateProvider>{children}</PaymentSheetCreateProvider>
+            </QueryClientProvider>
         </NextAuthProvider>
     );
 }

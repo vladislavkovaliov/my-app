@@ -2,6 +2,7 @@
 
 import { useCallback, useMemo } from 'react';
 
+import { usePaymentSheetCreate } from '@/app-providers/payment-sheet-create-provider';
 import {
     Menubar,
     MenubarCheckboxItem,
@@ -30,6 +31,8 @@ export function AppHeader({}: IAppHeaderProps) {
 
     const languageSwitch = useLanguageSwitch();
 
+    const { handleChange } = usePaymentSheetCreate();
+
     const handleLanguageSwitch = useCallback(
         (local: string) => () => {
             languageSwitch(local);
@@ -37,28 +40,38 @@ export function AppHeader({}: IAppHeaderProps) {
         [languageSwitch],
     );
 
+    const handlePaymentCreateChangeCallback = () => {
+        handleChange();
+    };
+
     const menus = useMemo(() => {
         return getMenuConfig().map((menu) => ({
             ...menu,
             items: menu.items.map((item) => {
-                if (item.type !== 'submenu' || item.id !== 'language') {
-                    return item;
+                if (item.type === 'submenu' && item.id === 'language') {
+                    return {
+                        ...item,
+                        children: item.children.map((child) => {
+                            if (child.type === 'checkbox') {
+                                return {
+                                    ...child,
+                                    checked: child.data === lang,
+                                    onSelect: handleLanguageSwitch(child.data as string),
+                                };
+                            }
+                            return child;
+                        }),
+                    };
                 }
 
-                return {
-                    ...item,
-                    children: item.children.map((child) => {
-                        if (child.type === 'checkbox') {
-                            return {
-                                ...child,
-                                checked: child.data === lang,
-                                onSelect: handleLanguageSwitch(child.data as string),
-                            };
-                        }
+                if (item.type === 'item' && item.id === 'payment-create') {
+                    return {
+                        ...item,
+                        onSelect: handlePaymentCreateChangeCallback,
+                    };
+                }
 
-                        return child;
-                    }),
-                };
+                return item;
             }),
         }));
     }, [lang, handleLanguageSwitch]);

@@ -1,5 +1,6 @@
 import { User as NextAuthUser } from 'next-auth';
 
+import { User as IUser } from '@/generated/prisma';
 import { PrismaClient } from '@/generated/prisma/client';
 import { prisma } from '@/lib/prisma';
 import { PrismaService } from '@/services/PrismaService';
@@ -15,7 +16,7 @@ export class UserService extends PrismaService {
             select: { id: true, emailId: true, firstName: true, lastName: true, image: true },
         });
 
-        return dbUser;
+        return dbUser as IUser;
     };
 
     findOrCreate = async (user: NextAuthUser) => {
