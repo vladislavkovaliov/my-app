@@ -22,6 +22,7 @@ export function DataGrid<T extends { id: string }>({
     data,
     isLoading,
     total,
+    onRowClick,
 }: IDataGridProps<T>) {
     const { dict } = useI18n();
 
@@ -52,7 +53,12 @@ export function DataGrid<T extends { id: string }>({
     });
 
     return (
-        <_DataGrid table={table} recordCount={data?.length || 0} isLoading={isLoading}>
+        <_DataGrid
+            table={table}
+            recordCount={data?.length || 0}
+            isLoading={isLoading}
+            onRowClick={onRowClick}
+        >
             <div className="w-full space-y-2.5">
                 <DataGridContainer>
                     <ScrollArea>

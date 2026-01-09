@@ -2,7 +2,8 @@ import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
 
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
-import { ALLOWED_STATUSES, PaymentStatus } from '@/entities/payments/model/payment';
+import { ALLOWED_STATUSES } from '@/entities/payments/model/payment';
+import { Payment as IPayment } from '@/generated/prisma';
 import { getPaymentService, getUserService } from '@/services';
 
 export async function GET(req: NextRequest) {
@@ -73,25 +74,22 @@ export async function PATCH(req: Request) {
 
         const body = await req.json();
 
-        const { paymentId, status } = body as {
-            paymentId?: string;
-            status?: PaymentStatus;
-        };
+        const { id, ...rest } = body as IPayment;
 
-        if (!paymentId || !status) {
+        if (!id) {
             return NextResponse.json(
                 { error: 'paymentId and status are required' },
                 { status: 400 },
             );
         }
 
-        if (!ALLOWED_STATUSES.includes(status)) {
+        if (!ALLOWED_STATUSES.includes(rest.status)) {
             return NextResponse.json({ error: 'Invalid payment status' }, { status: 400 });
         }
 
         const payment = await getPaymentService().findFirst(
             {
-                id: paymentId,
+                id: id,
             },
             {
                 id: session.user.id!,
@@ -104,9 +102,9 @@ export async function PATCH(req: Request) {
 
         const updatedPayment = await getPaymentService().update(
             {
-                id: paymentId,
+                id: id,
             },
-            { status: status },
+            { status: rest.status, amount: rest.amount, paidAt: rest.paidAt },
         );
 
         return NextResponse.json(updatedPayment);

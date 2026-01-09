@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useSession } from 'next-auth/react';
 
 import { updatePayment } from '@/entities/payments/api/update-payment-api';
-import { IUpdatePaymentBody } from '@/entities/payments/model/payment';
+import { Payment as IPayment } from '@/generated/prisma';
 
 export const useUpdatePayment = () => {
     const { data: session } = useSession();
@@ -11,7 +11,7 @@ export const useUpdatePayment = () => {
     const userEmail = session?.user?.email;
 
     return useMutation({
-        mutationFn: (data: IUpdatePaymentBody) => {
+        mutationFn: (data: Partial<IPayment>) => {
             if (!userEmail) {
                 return Promise.reject(new Error('User not authenticated'));
             }

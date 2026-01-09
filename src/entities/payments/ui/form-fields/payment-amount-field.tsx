@@ -15,11 +15,15 @@ import { Input } from '@/components/ui/input';
 interface IPaymentAmountFieldProps<TFormValues extends FieldValues> {
     control: Control<TFormValues>;
     name: Path<TFormValues>;
+    showLabel?: boolean;
+    showDescription?: boolean;
 }
 
 export function PaymentAmountField<TFormValues extends FieldValues>({
     control,
     name,
+    showLabel = true,
+    showDescription = true,
 }: IPaymentAmountFieldProps<TFormValues>) {
     const { dict } = useI18n();
 
@@ -29,16 +33,20 @@ export function PaymentAmountField<TFormValues extends FieldValues>({
             name={name}
             render={({ field }) => (
                 <FormItem>
-                    <FormLabel>{dict.entities['form-fields'].payment.amount.label}</FormLabel>
+                    {showLabel ? (
+                        <FormLabel>{dict.entities['form-fields'].payment.amount.label}</FormLabel>
+                    ) : null}
                     <FormControl>
                         <Input
                             placeholder={dict.entities['form-fields'].payment.amount.placeholder}
                             {...field}
                         />
                     </FormControl>
-                    <FormDescription>
-                        {dict.entities['form-fields'].payment.amount.description}
-                    </FormDescription>
+                    {showDescription ? (
+                        <FormDescription>
+                            {dict.entities['form-fields'].payment.amount.description}
+                        </FormDescription>
+                    ) : null}
                     <FormMessage />
                 </FormItem>
             )}
