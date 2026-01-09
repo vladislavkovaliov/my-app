@@ -13,8 +13,7 @@ import { PaymentPaidAtField } from '@/entities/payments/ui/form-fields/payment-p
 import { useCoursesList } from '@/features/payment/payment-sheet-create/hooks/use-courses-list';
 import { useCreatePayment } from '@/features/payment/payment-sheet-create/hooks/use-create-payment';
 import { useCurrenciesList } from '@/features/payment/payment-sheet-create/hooks/use-currencies-list';
-
-import { usePaymentForm } from '../hooks/use-payment-form';
+import { usePaymentForm } from '@/features/payment/payment-sheet-create/hooks/use-payment-form';
 
 export interface IPaymentsFormProps {
     onSuccess: () => void;

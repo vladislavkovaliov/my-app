@@ -1,9 +1,7 @@
-import { User as IUser, Payment as IPayment, $Enums } from '@/generated/prisma';
+import { User as IUser, Payment as IPayment } from '@/generated/prisma';
 import { PrismaClient } from '@/generated/prisma/client';
 import { prisma } from '@/lib/prisma';
 import { PrismaService } from '@/services/PrismaService';
-
-import PaymentStatus = $Enums.PaymentStatus;
 
 export class PaymentService extends PrismaService {
     constructor(prisma: PrismaClient) {
@@ -47,10 +45,12 @@ export class PaymentService extends PrismaService {
         });
     };
 
-    update = (payment: Pick<IPayment, 'id'>, { status }: { status: PaymentStatus }) => {
+    update = (payment: Pick<IPayment, 'id'>, { status, amount, paidAt }: Partial<IPayment>) => {
         return this.prisma.payment.update({
             where: { id: payment.id },
             data: {
+                amount: amount,
+                paidAt: paidAt,
                 status: status,
                 ...(status === 'PAID' && { paidAt: new Date() }),
             },

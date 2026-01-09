@@ -1,21 +1,4 @@
-import {
-    Bug,
-    FileText,
-    Globe,
-    LogOut,
-    Mail,
-    Monitor,
-    Package,
-    Plus,
-    Server,
-    Settings,
-    Shield,
-    Trash,
-    User,
-    UserPlus,
-    Users,
-} from 'lucide-react';
-
+import { usePaymentDataGridMode } from '@/app-providers/payment-data-grid-mode';
 import { Button } from '@/components/ui/button';
 import {
     DropdownMenu,
@@ -42,8 +25,11 @@ export interface IPaymentGridDropdownMenuProps {
 export default function PaymentGridDropdownMenu({ payment }: IPaymentGridDropdownMenuProps) {
     const { mutateAsync } = useUpdatePayment();
 
+    const { changeMode } = usePaymentDataGridMode();
+
     const handleChangePaymentStatusCallback = async (event: React.MouseEvent<HTMLDivElement>) => {
         const target = event.target as HTMLElement | null;
+
         const item = target?.closest('[data-status]') as HTMLElement | null;
 
         if (!item) return;
@@ -52,13 +38,20 @@ export default function PaymentGridDropdownMenu({ payment }: IPaymentGridDropdow
 
         if (!status) return;
 
-        console.log(status);
-
         await mutateAsync({
-            paymentId: payment.id,
+            id: payment.id,
+            amount: payment.amount,
+            paidAt: payment.paidAt,
+            courseId: payment.courseId,
+            currencyId: payment.currencyId,
+            type: payment.type,
+            userId: payment.userId,
+            accountId: payment.accountId,
+            comment: payment.comment,
             status: status as PaymentStatus,
         });
     };
+
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -68,7 +61,7 @@ export default function PaymentGridDropdownMenu({ payment }: IPaymentGridDropdow
                 <DropdownMenuLabel>Payment</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
-                    <DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => changeMode()}>
                         <span>Edit</span>
                     </DropdownMenuItem>
                     <DropdownMenuItem>

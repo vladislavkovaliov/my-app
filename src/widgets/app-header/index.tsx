@@ -74,7 +74,7 @@ export function AppHeader({}: IAppHeaderProps) {
                 return item;
             }),
         }));
-    }, [lang, handleLanguageSwitch]);
+    }, [lang, handleLanguageSwitch, handlePaymentCreateChangeCallback]);
 
     const renderItem = (item: MenuItem) => {
         switch (item.type) {

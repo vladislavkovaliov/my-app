@@ -5,4 +5,5 @@ export type IDataGridProps<T> = {
     data: T[];
     isLoading: boolean;
     total: number;
+    onRowClick: (row: T) => void;
 };

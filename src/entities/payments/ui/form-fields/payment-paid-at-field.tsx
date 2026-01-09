@@ -1,6 +1,5 @@
 import { format } from 'date-fns';
-import { Calendar as CalendarIcon, X } from 'lucide-react';
-import * as React from 'react';
+import { X } from 'lucide-react';
 import { Control, FieldValues, Path } from 'react-hook-form';
 
 import { useI18n } from '@/app-providers/i-18n-provider';
@@ -12,14 +11,18 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 interface IPaymentPaidAtFieldProps<TFormValues extends FieldValues> {
     control: Control<TFormValues>;
     name: Path<TFormValues>;
+    showLabel?: boolean;
+    showDescription?: boolean;
 }
 
 export function PaymentPaidAtField<TFormValues extends FieldValues>({
     control,
     name,
+    showLabel = true,
+    showDescription = true,
 }: IPaymentPaidAtFieldProps<TFormValues>) {
     const { dict } = useI18n();
-
+    console.log({ showLabel, showDescription });
     return (
         <FormField
             control={control}
@@ -36,9 +39,8 @@ export function PaymentPaidAtField<TFormValues extends FieldValues>({
                                     placeholder={!field.value}
                                     className="w-full"
                                 >
-                                    <CalendarIcon />
                                     {field.value ? (
-                                        format(field.value, 'PPP')
+                                        format(field.value, 'yyyy-MM-dd')
                                     ) : (
                                         <span>
                                             {dict.entities['form-fields'].payment['paid-at'].label}

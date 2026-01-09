@@ -1,6 +1,6 @@
-import { IUpdatePaymentBody } from '@/entities/payments/model/payment';
+import { Payment as IPayment } from '@/generated/prisma';
 
-export const updatePayment = async ({ ...rest }: IUpdatePaymentBody) => {
+export const updatePayment = async ({ ...rest }: Partial<IPayment>) => {
     const res = await fetch('/api/payments', {
         method: 'PATCH',
         body: JSON.stringify(rest),
