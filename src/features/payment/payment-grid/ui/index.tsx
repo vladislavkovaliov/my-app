@@ -4,11 +4,11 @@ import { useI18n } from '@/app-providers/i-18n-provider';
 import { usePaymentDataGridMode } from '@/app-providers/payment-data-grid-mode';
 import { Form } from '@/components/ui/form';
 import { usePayments } from '@/features/payment/payment-grid/hooks/use-payments';
+import { usePaymentForm } from '@/shared/hooks/use-payment-form';
+import { useUpdatePayment } from '@/shared/hooks/use-update-payment';
+import { PaymentFormValues } from '@/shared/lib/form/payment-form-schema';
 import { DataGrid } from '@/widgets/data-grid';
 
-import { usePaymentForm } from '../../payment-sheet-create/hooks/use-payment-form';
-import { useUpdatePayment } from '../../payment-sheet-create/hooks/use-update-payment';
-import { PaymentFormValues } from '../../payment-sheet-create/model/schema';
 import { getColumns } from './colums';
 
 export interface IPaymentsGridProps {}

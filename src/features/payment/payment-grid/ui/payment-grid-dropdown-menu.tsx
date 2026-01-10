@@ -1,3 +1,4 @@
+import { useI18n } from '@/app-providers/i-18n-provider';
 import { usePaymentDataGridMode } from '@/app-providers/payment-data-grid-mode';
 import { Button } from '@/components/ui/button';
 import {
@@ -13,8 +14,8 @@ import {
     DropdownMenuSubTrigger,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { useUpdatePayment } from '@/features/payment/payment-sheet-create/hooks/use-update-payment';
 import { $Enums, Payment as IPayment } from '@/generated/prisma';
+import { useUpdatePayment } from '@/shared/hooks/use-update-payment';
 
 import PaymentStatus = $Enums.PaymentStatus;
 
@@ -26,6 +27,10 @@ export default function PaymentGridDropdownMenu({ payment }: IPaymentGridDropdow
     const { mutateAsync } = useUpdatePayment();
 
     const { changeMode } = usePaymentDataGridMode();
+
+    const { dict } = useI18n();
+
+    const _dict = dict.features['payment-grid-dropdown-menu'];
 
     const handleChangePaymentStatusCallback = async (event: React.MouseEvent<HTMLDivElement>) => {
         const target = event.target as HTMLElement | null;
@@ -55,57 +60,54 @@ export default function PaymentGridDropdownMenu({ payment }: IPaymentGridDropdow
     return (
         <DropdownMenu>
             <DropdownMenuTrigger asChild>
-                <Button variant="outline">Show Menu</Button>
+                <Button variant="outline">{_dict['show-menu']}</Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-64">
-                <DropdownMenuLabel>Payment</DropdownMenuLabel>
+                <DropdownMenuLabel>{_dict['payment']}</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
                     <DropdownMenuItem onClick={() => changeMode()}>
-                        <span>Edit</span>
+                        <span>{_dict.edit}</span>
                     </DropdownMenuItem>
                     <DropdownMenuItem>
-                        <span>Delete</span>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem>
-                        <span>Change Date</span>
+                        <span>{_dict['delete']}</span>
                     </DropdownMenuItem>
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
-                <DropdownMenuLabel>Payment Status</DropdownMenuLabel>
+                <DropdownMenuLabel>{_dict['payment-status']}</DropdownMenuLabel>
                 <DropdownMenuGroup>
                     <DropdownMenuSub>
                         <DropdownMenuSubTrigger>
-                            <span>Change Status</span>
+                            <span>{_dict['change-status']}</span>
                         </DropdownMenuSubTrigger>
                         <DropdownMenuPortal>
                             <DropdownMenuSubContent onClick={handleChangePaymentStatusCallback}>
                                 <DropdownMenuItem data-status={PaymentStatus.PENDING}>
-                                    <span>Pending</span>
+                                    <span>{_dict['payment-pending']}</span>
                                 </DropdownMenuItem>
                                 <DropdownMenuItem data-status={PaymentStatus.PAID}>
-                                    <span>Paid</span>
+                                    <span>{_dict['payment-paid']}</span>
                                 </DropdownMenuItem>
                                 <DropdownMenuItem data-status={PaymentStatus.CANCELED}>
-                                    <span>Canceled</span>
+                                    <span>{_dict['payment-canceled']}</span>
                                 </DropdownMenuItem>
                             </DropdownMenuSubContent>
                         </DropdownMenuPortal>
                     </DropdownMenuSub>
                     <DropdownMenuSub>
                         <DropdownMenuSubTrigger>
-                            <span>Change Type</span>
+                            <span>{_dict['payment-change-type']}</span>
                         </DropdownMenuSubTrigger>
                         <DropdownMenuPortal>
                             <DropdownMenuSubContent>
                                 <DropdownMenuItem>
-                                    <span>Course</span>
+                                    <span>{_dict.cource}</span>
                                 </DropdownMenuItem>
                                 <DropdownMenuItem>
-                                    <span>Package</span>
+                                    <span>{_dict.package}</span>
                                 </DropdownMenuItem>
                                 <DropdownMenuItem>
-                                    <span>Single</span>
+                                    <span>{_dict.single}</span>
                                 </DropdownMenuItem>
                             </DropdownMenuSubContent>
                         </DropdownMenuPortal>

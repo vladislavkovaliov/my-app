@@ -13,6 +13,7 @@ interface IPaymentPaidAtFieldProps<TFormValues extends FieldValues> {
     name: Path<TFormValues>;
     showLabel?: boolean;
     showDescription?: boolean;
+    showResetIcon?: boolean;
 }
 
 export function PaymentPaidAtField<TFormValues extends FieldValues>({
@@ -20,9 +21,11 @@ export function PaymentPaidAtField<TFormValues extends FieldValues>({
     name,
     showLabel = true,
     showDescription = true,
+    showResetIcon = true,
 }: IPaymentPaidAtFieldProps<TFormValues>) {
     const { dict } = useI18n();
     console.log({ showLabel, showDescription });
+
     return (
         <FormField
             control={control}
@@ -47,7 +50,7 @@ export function PaymentPaidAtField<TFormValues extends FieldValues>({
                                         </span>
                                     )}
                                 </Button>
-                                {field && (
+                                {showResetIcon && field && (
                                     <Button
                                         type="button"
                                         variant="dim"

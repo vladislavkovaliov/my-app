@@ -9,6 +9,7 @@
             "language.russian": "Russian",
             "language.english": "English",
             "payment": "Payment",
+            "payment.table": "Payments table",
             "payment.create": "Create payment"
         },
         "data-grid": {
@@ -42,6 +43,22 @@
             "type": "Type",
             "paidAt": "Paid at",
             "comment": "Comment"
+        },
+        "payment-grid-dropdown-menu": {
+            "show-menu": "Show menu",
+            "payment": "Payment",
+            "edit": "Edit",
+            "delete": "Delete",
+            "payment-status": "Payment status",
+            "change-status": "Change status",
+            "change-type": "Change type",
+            "payment-pending": "Pending",
+            "payment-paid": "Paid",
+            "payment-canceled": "Cenceled",
+            "payment-change-type": "Change type",
+            "cource": "Course",
+            "package": "Package",
+            "single": "Single"
         },
         "payment": {
             "sheet": {

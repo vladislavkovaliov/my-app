@@ -8,7 +8,8 @@
             "language": "Язык",
             "language.russian": "Русский",
             "language.english": "Английский",
-            "payment": "Платежи",
+            "payment": "Платёж",
+            "payment.table": "Таблица платежей",
             "payment.create": "Создать платёж"
         },
         "data-grid": {
@@ -26,7 +27,7 @@
                 },
                 "confirm": {
                     "label": "Платёж подтверждён?",
-                    "description": "Для продолжения необходимо согласие."
+                    "description": "Вы должны согласиться, чтобы продолжить."
                 },
                 "paid-at": {
                     "label": "Выберите дату"
@@ -43,11 +44,27 @@
             "paidAt": "Дата оплаты",
             "comment": "Комментарий"
         },
+        "payment-grid-dropdown-menu": {
+            "show-menu": "Показать меню",
+            "payment": "Платёж",
+            "edit": "Редактировать",
+            "delete": "Удалить",
+            "payment-status": "Статус платежа",
+            "change-status": "Изменить статус",
+            "change-type": "Изменить тип",
+            "payment-pending": "В ожидании",
+            "payment-paid": "Оплачен",
+            "payment-canceled": "Отменён",
+            "payment-change-type": "Изменить тип",
+            "cource": "Курс",
+            "package": "Пакет",
+            "single": "Разовый"
+        },
         "payment": {
             "sheet": {
-                "trigger": "Открыть панель",
+                "trigger": "Открыть форму",
                 "title": "Быстрый платёж",
-                "description": "Укажите данные для оплаты."
+                "description": "Введите данные о платеже."
             }
         },
         "payment-form": {
