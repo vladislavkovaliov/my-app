@@ -11,8 +11,7 @@ import { PaymentAmountField } from '@/entities/payments/ui/form-fields/payment-a
 import { PaymentPaidAtField } from '@/entities/payments/ui/form-fields/payment-paid-at-field';
 import PaymentGridDropdownMenu from '@/features/payment/payment-grid/ui/payment-grid-dropdown-menu';
 import { Payment as IPayment } from '@/generated/prisma';
-
-import { PaymentFormValues } from '../../payment-sheet-create/model/schema';
+import { PaymentFormValues } from '@/shared/lib/form/payment-form-schema';
 
 export function getColumns({
     dict,
@@ -131,6 +130,7 @@ export function getColumns({
                                 name="paidAt"
                                 showLabel={false}
                                 showDescription={false}
+                                showResetIcon={false}
                             />
                         ) : null}
                     </span>
@@ -163,7 +163,7 @@ export function getColumns({
             enableHiding: false,
             cell: (info: CellContext<IPayment, unknown>) => {
                 return (
-                    <div className="flex justify-end">
+                    <div className="flex justify-end space-x-2">
                         {mode === Mode.VIEW || info.row.id !== activeRowId ? (
                             <PaymentGridDropdownMenu payment={info.row.original} />
                         ) : null}

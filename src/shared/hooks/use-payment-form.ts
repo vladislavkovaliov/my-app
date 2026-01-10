@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 
-import { paymentSchema, PaymentFormValues } from '../model/schema';
+import { paymentSchema, PaymentFormValues } from '@/shared/lib/form/payment-form-schema';
 
 export const usePaymentForm = () => {
     return useForm<PaymentFormValues>({

@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { useCallback, useMemo } from 'react';
 
 import { usePaymentSheetCreate } from '@/app-providers/payment-sheet-create-provider';
@@ -25,6 +26,8 @@ import { MenuItem } from './types';
 export interface IAppHeaderProps {}
 
 export function AppHeader({}: IAppHeaderProps) {
+    const router = useRouter();
+
     const { dict, lang } = useI18n();
 
     const translate = dict.widgets['app-header'];
@@ -42,6 +45,10 @@ export function AppHeader({}: IAppHeaderProps) {
 
     const handlePaymentCreateChangeCallback = () => {
         handleChange();
+    };
+
+    const handleNavigateToPaymentTableCallback = () => {
+        router.push('payments');
     };
 
     const menus = useMemo(() => {
@@ -71,10 +78,22 @@ export function AppHeader({}: IAppHeaderProps) {
                     };
                 }
 
+                if (item.type === 'item' && item.id === 'payment-table') {
+                    return {
+                        ...item,
+                        onSelect: handleNavigateToPaymentTableCallback,
+                    };
+                }
+
                 return item;
             }),
         }));
-    }, [lang, handleLanguageSwitch, handlePaymentCreateChangeCallback]);
+    }, [
+        lang,
+        handleLanguageSwitch,
+        handlePaymentCreateChangeCallback,
+        handleNavigateToPaymentTableCallback,
+    ]);
 
     const renderItem = (item: MenuItem) => {
         switch (item.type) {
