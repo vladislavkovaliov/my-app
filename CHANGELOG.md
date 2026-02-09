@@ -1,3 +1,12 @@
+# [1.5.0](https://github.com/vladislavkovaliov/my-app/compare/v1.4.0...v1.5.0) (2026-02-09)
+
+
+### Features
+
+* adds payment edit mode ([#9](https://github.com/vladislavkovaliov/my-app/issues/9)) ([04f5be5](https://github.com/vladislavkovaliov/my-app/commit/04f5be5abb52c43eaa6e877584907fd765e76ad6))
+* adds sheet to make payment ([#7](https://github.com/vladislavkovaliov/my-app/issues/7)) ([3d762e0](https://github.com/vladislavkovaliov/my-app/commit/3d762e00b87bc1234d2d604c7caaa0e28f013fb2))
+* adds update payment status ([#8](https://github.com/vladislavkovaliov/my-app/issues/8)) ([df9a431](https://github.com/vladislavkovaliov/my-app/commit/df9a4313c47a1f0af6da5cc7a933448dd0e70bba))
+
 # [1.4.0](https://github.com/vladislavkovaliov/my-app/compare/v1.3.0...v1.4.0) (2025-12-25)
 
 
