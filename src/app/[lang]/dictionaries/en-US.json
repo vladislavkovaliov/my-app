@@ -10,6 +10,8 @@
             "language.english": "English",
             "payment": "Payment",
             "payment.table": "Payments table",
+            "course": "Courses",
+            "course.table": "Courses table",
             "payment.create": "Create payment"
         },
         "data-grid": {
@@ -43,6 +45,13 @@
             "type": "Type",
             "paidAt": "Paid at",
             "comment": "Comment"
+        },
+        "course-grid": {
+            "id": "ID",
+            "title": "Title",
+            "description": "Description",
+            "price": "Price",
+            "currency": "Currency"
         },
         "payment-grid-dropdown-menu": {
             "show-menu": "Show menu",

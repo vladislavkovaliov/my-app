@@ -51,6 +51,10 @@ export function AppHeader({}: IAppHeaderProps) {
         router.push('payments');
     };
 
+    const handleNavigateToCoursesTableCallback = () => {
+        router.push('courses');
+    };
+
     const menus = useMemo(() => {
         return getMenuConfig().map((menu) => ({
             ...menu,
@@ -82,6 +86,13 @@ export function AppHeader({}: IAppHeaderProps) {
                     return {
                         ...item,
                         onSelect: handleNavigateToPaymentTableCallback,
+                    };
+                }
+
+                if (item.type === 'item' && item.id === 'course-table') {
+                    return {
+                        ...item,
+                        onSelect: handleNavigateToCoursesTableCallback,
                     };
                 }
 
@@ -137,13 +148,15 @@ export function AppHeader({}: IAppHeaderProps) {
     };
 
     return (
-        <Menubar>
-            {menus.map((menu) => (
-                <MenubarMenu key={menu.id}>
-                    <MenubarTrigger>{translate[menu.i18n]}</MenubarTrigger>
-                    <MenubarContent>{menu.items.map(renderItem)}</MenubarContent>
-                </MenubarMenu>
-            ))}
-        </Menubar>
+        <header>
+            <Menubar>
+                {menus.map((menu) => (
+                    <MenubarMenu key={menu.id}>
+                        <MenubarTrigger>{translate[menu.i18n]}</MenubarTrigger>
+                        <MenubarContent>{menu.items.map(renderItem)}</MenubarContent>
+                    </MenubarMenu>
+                ))}
+            </Menubar>
+        </header>
     );
 }

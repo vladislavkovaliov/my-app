@@ -10,6 +10,8 @@
             "language.english": "Английский",
             "payment": "Платёж",
             "payment.table": "Таблица платежей",
+            "course": "Курсы",
+            "course.table": "Таблица курсов",
             "payment.create": "Создать платёж"
         },
         "data-grid": {
@@ -43,6 +45,13 @@
             "type": "Тип",
             "paidAt": "Дата оплаты",
             "comment": "Комментарий"
+        },
+        "course-grid": {
+            "id": "ID",
+            "title": "Название",
+            "description": "Описание",
+            "price": "Цена",
+            "currency": "Валюта"
         },
         "payment-grid-dropdown-menu": {
             "show-menu": "Показать меню",

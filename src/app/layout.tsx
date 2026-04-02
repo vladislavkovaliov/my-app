@@ -20,7 +20,7 @@ export default function RootLayout({
 }>) {
     return (
         <html>
-            <body className={cn('text-base antialiased', inter.className)}>
+            <body className={cn('text-base antialiased flex flex-col', inter.className)}>
                 <ClientProvider>{children}</ClientProvider>
             </body>
         </html>

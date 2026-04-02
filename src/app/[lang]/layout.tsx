@@ -21,7 +21,7 @@ export default async function LangLayout({
     return (
         <I18nProvider lang={lang} dict={dict}>
             <AppHeader />
-            <main>{children}</main>
+            <main className="h-full p-4">{children}</main>
         </I18nProvider>
     );
 }

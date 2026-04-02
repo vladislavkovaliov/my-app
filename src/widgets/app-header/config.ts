@@ -69,4 +69,15 @@ export const getMenuConfig = (): MenuConfig => [
             },
         ],
     },
+    {
+        id: 'course',
+        i18n: 'course',
+        items: [
+            {
+                type: 'item',
+                id: 'course-table',
+                i18n: 'course.table',
+            },
+        ],
+    },
 ];

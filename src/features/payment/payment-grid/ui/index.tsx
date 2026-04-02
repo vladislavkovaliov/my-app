@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useMemo } from 'react';
 
 import { useI18n } from '@/app-providers/i-18n-provider';
@@ -60,7 +62,6 @@ export function PaymentsGrid(_: IPaymentsGridProps) {
     });
 
     const handleSaveCallback = () => {
-        console.log('handleSubmitCallback');
         handleSubmitCallback();
     };
 
@@ -74,17 +75,15 @@ export function PaymentsGrid(_: IPaymentsGridProps) {
     });
 
     return (
-        <div className="p-4">
-            <Form {...form}>
-                <form>
-                    <DataGrid
-                        columns={columns}
-                        isLoading={isPending}
-                        onRowClick={changeActiveRowId}
-                        {..._data}
-                    />
-                </form>
-            </Form>
-        </div>
+        <Form {...form}>
+            <form>
+                <DataGrid
+                    columns={columns}
+                    isLoading={isPending}
+                    onRowClick={changeActiveRowId}
+                    {..._data}
+                />
+            </form>
+        </Form>
     );
 }
