@@ -7,11 +7,10 @@ export const useCourseForm = () => {
     return useForm<CourseFormValues>({
         resolver: zodResolver(courseSchema),
         defaultValues: {
-            // amount: 0,
-            // confirmPayment: false,
-            // paidAt: new Date(),
-            // courseId: undefined,
-            // currencyId: undefined,
+            title: '',
+            description: '',
+            price: 0,
+            currencyId: '',
         },
     });
 };

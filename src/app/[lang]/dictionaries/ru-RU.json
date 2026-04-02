@@ -12,6 +12,7 @@
             "payment.table": "Таблица платежей",
             "course": "Курсы",
             "course.table": "Таблица курсов",
+            "course.create": "Создать курс",
             "payment.create": "Создать платёж"
         },
         "data-grid": {
@@ -33,6 +34,23 @@
                 },
                 "paid-at": {
                     "label": "Выберите дату"
+                }
+            },
+            "course": {
+                "title": {
+                    "label": "Название",
+                    "placeholder": "Название курса",
+                    "description": "Краткое уникальное название курса."
+                },
+                "description": {
+                    "label": "Описание",
+                    "placeholder": "Дополнительно для студентов",
+                    "description": "Можно оставить пустым."
+                },
+                "price": {
+                    "label": "Цена",
+                    "placeholder": "0",
+                    "description": "Стоимость в выбранной валюте."
                 }
             }
         }
@@ -74,6 +92,12 @@
                 "trigger": "Открыть форму",
                 "title": "Быстрый платёж",
                 "description": "Введите данные о платеже."
+            }
+        },
+        "course": {
+            "sheet": {
+                "title": "Новый курс",
+                "description": "Укажите название, при необходимости описание, цену и валюту."
             }
         },
         "payment-form": {

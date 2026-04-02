@@ -12,6 +12,7 @@
             "payment.table": "Payments table",
             "course": "Courses",
             "course.table": "Courses table",
+            "course.create": "Create course",
             "payment.create": "Create payment"
         },
         "data-grid": {
@@ -33,6 +34,23 @@
                 },
                 "paid-at": {
                     "label": "Pick a date"
+                }
+            },
+            "course": {
+                "title": {
+                    "label": "Title",
+                    "placeholder": "Course name",
+                    "description": "A short unique name for the course."
+                },
+                "description": {
+                    "label": "Description",
+                    "placeholder": "Optional details for students",
+                    "description": "You can leave this empty."
+                },
+                "price": {
+                    "label": "Price",
+                    "placeholder": "0",
+                    "description": "Course price in the selected currency."
                 }
             }
         }
@@ -74,6 +92,12 @@
                 "trigger": "Open Sheet",
                 "title": "Quick Payment",
                 "description": "Share your payments details."
+            }
+        },
+        "course": {
+            "sheet": {
+                "title": "New course",
+                "description": "Enter the course title, optional description, price, and currency."
             }
         },
         "payment-form": {

@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { useCallback, useMemo } from 'react';
 
+import { useCourseSheetCreate } from '@/app-providers/course-sheet-create-provider';
 import { usePaymentSheetCreate } from '@/app-providers/payment-sheet-create-provider';
 import {
     Menubar,
@@ -34,7 +35,8 @@ export function AppHeader({}: IAppHeaderProps) {
 
     const languageSwitch = useLanguageSwitch();
 
-    const { handleChange } = usePaymentSheetCreate();
+    const { handleChange: handlePaymentSheetChange } = usePaymentSheetCreate();
+    const { handleChange: handleCourseSheetChange } = useCourseSheetCreate();
 
     const handleLanguageSwitch = useCallback(
         (local: string) => () => {
@@ -44,7 +46,11 @@ export function AppHeader({}: IAppHeaderProps) {
     );
 
     const handlePaymentCreateChangeCallback = () => {
-        handleChange();
+        handlePaymentSheetChange();
+    };
+
+    const handleCourseCreateChangeCallback = () => {
+        handleCourseSheetChange();
     };
 
     const handleNavigateToPaymentTableCallback = () => {
@@ -96,6 +102,13 @@ export function AppHeader({}: IAppHeaderProps) {
                     };
                 }
 
+                if (item.type === 'item' && item.id === 'course-create') {
+                    return {
+                        ...item,
+                        onSelect: handleCourseCreateChangeCallback,
+                    };
+                }
+
                 return item;
             }),
         }));
@@ -103,7 +116,9 @@ export function AppHeader({}: IAppHeaderProps) {
         lang,
         handleLanguageSwitch,
         handlePaymentCreateChangeCallback,
+        handleCourseCreateChangeCallback,
         handleNavigateToPaymentTableCallback,
+        handleNavigateToCoursesTableCallback,
     ]);
 
     const renderItem = (item: MenuItem) => {

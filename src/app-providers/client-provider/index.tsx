@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { PaymentDataGridModeProvider } from '@/app-providers/payment-data-grid-mode';
 import { PaymentSheetDatePickerDialogProvider } from '@/app-providers/payment-sheet-datepicker-dialog';
 
+import { CourseSheetCreateProvider } from '../course-sheet-create-provider';
 import { PaymentSheetCreateProvider } from '../payment-sheet-create-provider';
 import { NextAuthProvider } from '../session-provider';
 
@@ -19,9 +20,11 @@ export function ClientProvider({
         <NextAuthProvider>
             <QueryClientProvider client={queryClient}>
                 <PaymentSheetCreateProvider>
-                    <PaymentSheetDatePickerDialogProvider>
-                        <PaymentDataGridModeProvider>{children}</PaymentDataGridModeProvider>
-                    </PaymentSheetDatePickerDialogProvider>
+                    <CourseSheetCreateProvider>
+                        <PaymentSheetDatePickerDialogProvider>
+                            <PaymentDataGridModeProvider>{children}</PaymentDataGridModeProvider>
+                        </PaymentSheetDatePickerDialogProvider>
+                    </CourseSheetCreateProvider>
                 </PaymentSheetCreateProvider>
             </QueryClientProvider>
         </NextAuthProvider>
