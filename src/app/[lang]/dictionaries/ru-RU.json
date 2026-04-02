@@ -13,6 +13,9 @@
             "course": "Курсы",
             "course.table": "Таблица курсов",
             "course.create": "Создать курс",
+            "currency": "Валюты",
+            "currency.table": "Таблица валют",
+            "currency.create": "Создать валюту",
             "payment.create": "Создать платёж"
         },
         "data-grid": {
@@ -52,6 +55,27 @@
                     "placeholder": "0",
                     "description": "Стоимость в выбранной валюте."
                 }
+            },
+            "currency": {
+                "code": {
+                    "label": "Код",
+                    "placeholder": "BYN",
+                    "description": "Краткий уникальный код (например ISO 4217)."
+                },
+                "name": {
+                    "label": "Название",
+                    "placeholder": "Белорусский рубль",
+                    "description": "Полное название в списках."
+                },
+                "symbol": {
+                    "label": "Символ",
+                    "placeholder": "Br",
+                    "description": "Необязательный символ валюты."
+                },
+                "isActive": {
+                    "label": "Активна",
+                    "description": "Неактивные валюты можно скрыть для новых записей."
+                }
             }
         }
     },
@@ -70,6 +94,15 @@
             "description": "Описание",
             "price": "Цена",
             "currency": "Валюта"
+        },
+        "currency-grid": {
+            "id": "ID",
+            "code": "Код",
+            "name": "Название",
+            "symbol": "Символ",
+            "isActive": "Активна",
+            "activeYes": "Да",
+            "activeNo": "Нет"
         },
         "payment-grid-dropdown-menu": {
             "show-menu": "Показать меню",
@@ -98,6 +131,12 @@
             "sheet": {
                 "title": "Новый курс",
                 "description": "Укажите название, при необходимости описание, цену и валюту."
+            }
+        },
+        "currency": {
+            "sheet": {
+                "title": "Новая валюта",
+                "description": "Укажите код, название, при необходимости символ и активность."
             }
         },
         "payment-form": {

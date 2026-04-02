@@ -13,6 +13,9 @@
             "course": "Courses",
             "course.table": "Courses table",
             "course.create": "Create course",
+            "currency": "Currencies",
+            "currency.table": "Currencies table",
+            "currency.create": "Create currency",
             "payment.create": "Create payment"
         },
         "data-grid": {
@@ -52,6 +55,27 @@
                     "placeholder": "0",
                     "description": "Course price in the selected currency."
                 }
+            },
+            "currency": {
+                "code": {
+                    "label": "Code",
+                    "placeholder": "BYN",
+                    "description": "Short unique code (e.g. ISO 4217)."
+                },
+                "name": {
+                    "label": "Name",
+                    "placeholder": "Belarusian ruble",
+                    "description": "Full name shown in lists."
+                },
+                "symbol": {
+                    "label": "Symbol",
+                    "placeholder": "Br",
+                    "description": "Optional currency symbol."
+                },
+                "isActive": {
+                    "label": "Active",
+                    "description": "Inactive currencies can be hidden from new records."
+                }
             }
         }
     },
@@ -70,6 +94,15 @@
             "description": "Description",
             "price": "Price",
             "currency": "Currency"
+        },
+        "currency-grid": {
+            "id": "ID",
+            "code": "Code",
+            "name": "Name",
+            "symbol": "Symbol",
+            "isActive": "Active",
+            "activeYes": "Yes",
+            "activeNo": "No"
         },
         "payment-grid-dropdown-menu": {
             "show-menu": "Show menu",
@@ -98,6 +131,12 @@
             "sheet": {
                 "title": "New course",
                 "description": "Enter the course title, optional description, price, and currency."
+            }
+        },
+        "currency": {
+            "sheet": {
+                "title": "New currency",
+                "description": "Set code, name, optional symbol, and whether the currency is active."
             }
         },
         "payment-form": {

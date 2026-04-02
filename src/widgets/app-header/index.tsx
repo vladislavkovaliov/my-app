@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useCallback, useMemo } from 'react';
 
 import { useCourseSheetCreate } from '@/app-providers/course-sheet-create-provider';
+import { useCurrencySheetCreate } from '@/app-providers/currency-sheet-create-provider';
 import { usePaymentSheetCreate } from '@/app-providers/payment-sheet-create-provider';
 import {
     Menubar,
@@ -37,6 +38,7 @@ export function AppHeader({}: IAppHeaderProps) {
 
     const { handleChange: handlePaymentSheetChange } = usePaymentSheetCreate();
     const { handleChange: handleCourseSheetChange } = useCourseSheetCreate();
+    const { handleChange: handleCurrencySheetChange } = useCurrencySheetCreate();
 
     const handleLanguageSwitch = useCallback(
         (local: string) => () => {
@@ -53,12 +55,20 @@ export function AppHeader({}: IAppHeaderProps) {
         handleCourseSheetChange();
     };
 
+    const handleCurrencyCreateChangeCallback = () => {
+        handleCurrencySheetChange();
+    };
+
     const handleNavigateToPaymentTableCallback = () => {
         router.push('payments');
     };
 
     const handleNavigateToCoursesTableCallback = () => {
         router.push('courses');
+    };
+
+    const handleNavigateToCurrenciesTableCallback = () => {
+        router.push('currencies');
     };
 
     const menus = useMemo(() => {
@@ -109,6 +119,20 @@ export function AppHeader({}: IAppHeaderProps) {
                     };
                 }
 
+                if (item.type === 'item' && item.id === 'currency-table') {
+                    return {
+                        ...item,
+                        onSelect: handleNavigateToCurrenciesTableCallback,
+                    };
+                }
+
+                if (item.type === 'item' && item.id === 'currency-create') {
+                    return {
+                        ...item,
+                        onSelect: handleCurrencyCreateChangeCallback,
+                    };
+                }
+
                 return item;
             }),
         }));
@@ -117,8 +141,10 @@ export function AppHeader({}: IAppHeaderProps) {
         handleLanguageSwitch,
         handlePaymentCreateChangeCallback,
         handleCourseCreateChangeCallback,
+        handleCurrencyCreateChangeCallback,
         handleNavigateToPaymentTableCallback,
         handleNavigateToCoursesTableCallback,
+        handleNavigateToCurrenciesTableCallback,
     ]);
 
     const renderItem = (item: MenuItem) => {

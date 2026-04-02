@@ -6,6 +6,7 @@ import { PaymentDataGridModeProvider } from '@/app-providers/payment-data-grid-m
 import { PaymentSheetDatePickerDialogProvider } from '@/app-providers/payment-sheet-datepicker-dialog';
 
 import { CourseSheetCreateProvider } from '../course-sheet-create-provider';
+import { CurrencySheetCreateProvider } from '../currency-sheet-create-provider';
 import { PaymentSheetCreateProvider } from '../payment-sheet-create-provider';
 import { NextAuthProvider } from '../session-provider';
 
@@ -21,9 +22,13 @@ export function ClientProvider({
             <QueryClientProvider client={queryClient}>
                 <PaymentSheetCreateProvider>
                     <CourseSheetCreateProvider>
-                        <PaymentSheetDatePickerDialogProvider>
-                            <PaymentDataGridModeProvider>{children}</PaymentDataGridModeProvider>
-                        </PaymentSheetDatePickerDialogProvider>
+                        <CurrencySheetCreateProvider>
+                            <PaymentSheetDatePickerDialogProvider>
+                                <PaymentDataGridModeProvider>
+                                    {children}
+                                </PaymentDataGridModeProvider>
+                            </PaymentSheetDatePickerDialogProvider>
+                        </CurrencySheetCreateProvider>
                     </CourseSheetCreateProvider>
                 </PaymentSheetCreateProvider>
             </QueryClientProvider>

@@ -85,4 +85,20 @@ export const getMenuConfig = (): MenuConfig => [
             },
         ],
     },
+    {
+        id: 'currency',
+        i18n: 'currency',
+        items: [
+            {
+                type: 'item',
+                id: 'currency-table',
+                i18n: 'currency.table',
+            },
+            {
+                type: 'item',
+                id: 'currency-create',
+                i18n: 'currency.create',
+            },
+        ],
+    },
 ];
