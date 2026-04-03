@@ -5,6 +5,8 @@ import { useCallback, useMemo } from 'react';
 
 import { useCourseSheetCreate } from '@/app-providers/course-sheet-create-provider/course-sheet-create-provider';
 import { useCurrencySheetCreate } from '@/app-providers/currency-sheet-create-provider/currency-sheet-create-provider';
+import { useI18n } from '@/app-providers/i-18n-provider/i-18n-provider';
+import { useLessonSheetCreate } from '@/app-providers/lesson-sheet-create-provider/lesson-sheet-create-provider';
 import { usePaymentSheetCreate } from '@/app-providers/payment-sheet-create-provider/payment-sheet-create-provider';
 import {
     Menubar,
@@ -22,7 +24,6 @@ import { assertNever } from '@/shared/helpers/assertNever';
 import { useLanguageSwitch } from '@/shared/hooks/useLanguageSwitch';
 import { getMenuConfig } from '@/widgets/app-header/config';
 
-import { useI18n } from '@/app-providers/i-18n-provider/i-18n-provider';
 import { MenuItem } from './types';
 
 export interface IAppHeaderProps {}
@@ -39,6 +40,7 @@ export function AppHeader({}: IAppHeaderProps) {
     const { handleChange: handlePaymentSheetChange } = usePaymentSheetCreate();
     const { handleChange: handleCourseSheetChange } = useCourseSheetCreate();
     const { handleChange: handleCurrencySheetChange } = useCurrencySheetCreate();
+    const { handleChange: handleLessonSheetChange } = useLessonSheetCreate();
 
     const handleLanguageSwitch = useCallback(
         (local: string) => () => {
@@ -59,6 +61,10 @@ export function AppHeader({}: IAppHeaderProps) {
         handleCurrencySheetChange();
     };
 
+    const handleLessonCreateChangeCallback = () => {
+        handleLessonSheetChange();
+    };
+
     const handleNavigateToPaymentTableCallback = () => {
         router.push('payments');
     };
@@ -69,6 +75,10 @@ export function AppHeader({}: IAppHeaderProps) {
 
     const handleNavigateToCurrenciesTableCallback = () => {
         router.push('currencies');
+    };
+
+    const handleNavigateToLessonsTableCallback = () => {
+        router.push('lessons');
     };
 
     const menus = useMemo(() => {
@@ -86,6 +96,7 @@ export function AppHeader({}: IAppHeaderProps) {
                                     onSelect: handleLanguageSwitch(child.data as string),
                                 };
                             }
+
                             return child;
                         }),
                     };
@@ -133,6 +144,20 @@ export function AppHeader({}: IAppHeaderProps) {
                     };
                 }
 
+                if (item.type === 'item' && item.id === 'lesson-table') {
+                    return {
+                        ...item,
+                        onSelect: handleNavigateToLessonsTableCallback,
+                    };
+                }
+
+                if (item.type === 'item' && item.id === 'lesson-create') {
+                    return {
+                        ...item,
+                        onSelect: handleLessonCreateChangeCallback,
+                    };
+                }
+
                 return item;
             }),
         }));
@@ -142,9 +167,11 @@ export function AppHeader({}: IAppHeaderProps) {
         handlePaymentCreateChangeCallback,
         handleCourseCreateChangeCallback,
         handleCurrencyCreateChangeCallback,
+        handleLessonCreateChangeCallback,
         handleNavigateToPaymentTableCallback,
         handleNavigateToCoursesTableCallback,
         handleNavigateToCurrenciesTableCallback,
+        handleNavigateToLessonsTableCallback,
     ]);
 
     const renderItem = (item: MenuItem) => {

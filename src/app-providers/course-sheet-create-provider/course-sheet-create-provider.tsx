@@ -51,8 +51,9 @@ export function CourseSheetCreateProvider({ children }: ICourseSheetCreateProvid
 export const useCourseSheetCreate = () => {
     const context = useContext(CourseSheetCreateContext);
 
-    if (!context)
+    if (!context) {
         throw new Error('useCourseSheetCreate must be used within CourseSheetCreateProvider');
+    }
 
     return context;
 };

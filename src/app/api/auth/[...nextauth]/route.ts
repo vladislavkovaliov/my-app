@@ -42,7 +42,9 @@ export const authOptions = {
             return true;
         },
         async jwt({ token }) {
-            if (!token.email) return token;
+            if (!token.email) {
+                return token;
+            }
 
             const dbUser = await getUserService().findUnique({
                 email: token.email,
@@ -70,6 +72,7 @@ export const authOptions = {
                     session.user = customUser;
                 }
             }
+
             return session;
         },
     },

@@ -6,11 +6,11 @@ import { Dict } from '@/app/[lang]/i18n';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { CurrenciesField } from '@/entities/currencies/ui/form-fields/currencies-field';
 import { CourseRow } from '@/entities/courses/api/get-courses-api';
 import { CourseDescriptionField } from '@/entities/courses/ui/form-fields/course-description-field';
 import { CoursePriceField } from '@/entities/courses/ui/form-fields/course-price-field';
 import { CourseTitleField } from '@/entities/courses/ui/form-fields/course-title-field';
+import { CurrenciesField } from '@/entities/currencies/ui/form-fields/currencies-field';
 import CourseGridDropdownMenu from '@/features/course/course-grid/ui/course-grid-dropdown-menu';
 import { Currency as ICurrency } from '@/generated/prisma';
 import { CourseFormValues } from '@/shared/lib/form/course-form-schema';
@@ -95,6 +95,7 @@ export function getColumns({
             header: _dict.description,
             cell: (info: CellContext<CourseRow, unknown>) => {
                 const value = info.getValue() as string | null;
+
                 return (
                     <div className="flex min-w-[140px]">
                         {mode === Mode.VIEW || info.row.id !== activeRowId ? (

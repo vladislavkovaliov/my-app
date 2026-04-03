@@ -18,6 +18,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { CourseRow } from '@/entities/courses/api/get-courses-api';
 import { useCurrenciesList } from '@/features/payment/payment-sheet-create/hooks/use-currencies-list';
+import { useDeleteCourse } from '@/shared/hooks/use-delete-course';
 import { useUpdateCourse } from '@/shared/hooks/use-update-course';
 
 export interface ICourseGridDropdownMenuProps {
@@ -25,7 +26,8 @@ export interface ICourseGridDropdownMenuProps {
 }
 
 export default function CourseGridDropdownMenu({ course }: ICourseGridDropdownMenuProps) {
-    const { mutateAsync } = useUpdateCourse();
+    const { mutateAsync: updateMutateAsync } = useUpdateCourse();
+    const { mutateAsync: deleteMutateAsync } = useDeleteCourse();
 
     const { changeMode } = usePaymentDataGridMode();
 
@@ -51,16 +53,24 @@ export default function CourseGridDropdownMenu({ course }: ICourseGridDropdownMe
 
         const item = target?.closest('[data-currency-id]') as HTMLElement | null;
 
-        if (!item) return;
+        if (!item) {
+            return;
+        }
 
         const currencyId = item.dataset.currencyId;
 
-        if (!currencyId || currencyId === course.currencyId) return;
+        if (!currencyId || currencyId === course.currencyId) {
+            return;
+        }
 
-        await mutateAsync({
+        await updateMutateAsync({
             id: course.id,
             currencyId,
         });
+    };
+
+    const handleDeleteCallback = async () => {
+        await deleteMutateAsync(course.id);
     };
 
     return (
@@ -75,7 +85,7 @@ export default function CourseGridDropdownMenu({ course }: ICourseGridDropdownMe
                     <DropdownMenuItem onClick={() => changeMode()}>
                         <span>{_dict.edit}</span>
                     </DropdownMenuItem>
-                    <DropdownMenuItem>
+                    <DropdownMenuItem onClick={handleDeleteCallback}>
                         <span>{_dict.delete}</span>
                     </DropdownMenuItem>
                 </DropdownMenuGroup>

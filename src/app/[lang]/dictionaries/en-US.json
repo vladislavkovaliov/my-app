@@ -13,6 +13,9 @@
             "course": "Courses",
             "course.table": "Courses table",
             "course.create": "Create course",
+            "lesson": "Lessons",
+            "lesson.table": "Lessons table",
+            "lesson.create": "Create lesson",
             "currency": "Currencies",
             "currency.table": "Currencies table",
             "currency.create": "Create currency",
@@ -95,6 +98,24 @@
             "price": "Price",
             "currency": "Currency"
         },
+        "lesson-grid": {
+            "title": "Title",
+            "startTime": "Start Time",
+            "endTime": "End Time",
+            "course": "Course"
+        },
+        "lesson-grid-dropdown-menu": {
+            "show-menu": "Show menu",
+            "lesson": "Lesson",
+            "edit": "Edit",
+            "delete": "Delete"
+        },
+        "lesson": {
+            "sheet": {
+                "title": "New Lesson",
+                "description": "Enter the lesson title, start/end time, and course."
+            }
+        },
         "currency-grid": {
             "id": "ID",
             "code": "Code",
@@ -103,6 +124,14 @@
             "isActive": "Active",
             "activeYes": "Yes",
             "activeNo": "No"
+        },
+        "currency-grid-dropdown-menu": {
+            "show-menu": "Show menu",
+            "currency": "Currency",
+            "edit": "Edit",
+            "activate": "Activate",
+            "deactivate": "Deactivate",
+            "delete": "Delete"
         },
         "course-grid-dropdown-menu": {
             "show-menu": "Show menu",

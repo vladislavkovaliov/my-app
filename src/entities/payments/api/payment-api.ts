@@ -12,7 +12,9 @@ export const getPayments = async ({
         method: 'GET',
     });
 
-    if (!res.ok) throw new Error('Failed to fetch');
+    if (!res.ok) {
+        throw new Error('Failed to fetch');
+    }
 
     return res.json();
 };

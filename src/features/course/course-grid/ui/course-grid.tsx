@@ -62,7 +62,9 @@ export function CoursesGrid(_: ICoursesGridProps) {
     }, [form, editableCourse]);
 
     const handleSubmitingFormCallback = async (values: CourseFormValues) => {
-        if (!editableCourse) return;
+        if (!editableCourse) {
+            return;
+        }
 
         const desc = String(values.description ?? '').trim();
 

@@ -66,8 +66,9 @@ export function PaymentDataGridModeProvider({ children }: IPaymentDataGridModePr
 export const usePaymentDataGridMode = () => {
     const context = useContext(PaymentDataGridModeContext);
 
-    if (!context)
+    if (!context) {
         throw new Error('usePaymentDataGridMode must be used within PaymentDataGridModeProvider');
+    }
 
     return context;
 };

@@ -15,6 +15,7 @@ import {
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { $Enums, Payment as IPayment } from '@/generated/prisma';
+import { useDeletePayment } from '@/shared/hooks/use-delete-payment';
 import { useUpdatePayment } from '@/shared/hooks/use-update-payment';
 
 import PaymentStatus = $Enums.PaymentStatus;
@@ -24,7 +25,8 @@ export interface IPaymentGridDropdownMenuProps {
 }
 
 export default function PaymentGridDropdownMenu({ payment }: IPaymentGridDropdownMenuProps) {
-    const { mutateAsync } = useUpdatePayment();
+    const { mutateAsync: updateMutateAsync } = useUpdatePayment();
+    const { mutateAsync: deleteMutateAsync } = useDeletePayment();
 
     const { changeMode } = usePaymentDataGridMode();
 
@@ -37,13 +39,17 @@ export default function PaymentGridDropdownMenu({ payment }: IPaymentGridDropdow
 
         const item = target?.closest('[data-status]') as HTMLElement | null;
 
-        if (!item) return;
+        if (!item) {
+            return;
+        }
 
         const status = item.dataset.status;
 
-        if (!status) return;
+        if (!status) {
+            return;
+        }
 
-        await mutateAsync({
+        await updateMutateAsync({
             id: payment.id,
             amount: payment.amount,
             paidAt: payment.paidAt,
@@ -55,6 +61,10 @@ export default function PaymentGridDropdownMenu({ payment }: IPaymentGridDropdow
             comment: payment.comment,
             status: status as PaymentStatus,
         });
+    };
+
+    const handleDeleteCallback = async () => {
+        await deleteMutateAsync(payment.id);
     };
 
     return (
@@ -69,7 +79,7 @@ export default function PaymentGridDropdownMenu({ payment }: IPaymentGridDropdow
                     <DropdownMenuItem onClick={() => changeMode()}>
                         <span>{_dict.edit}</span>
                     </DropdownMenuItem>
-                    <DropdownMenuItem>
+                    <DropdownMenuItem onClick={handleDeleteCallback}>
                         <span>{_dict['delete']}</span>
                     </DropdownMenuItem>
                 </DropdownMenuGroup>

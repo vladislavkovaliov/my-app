@@ -15,11 +15,15 @@ import {
 interface ICurrencyIsActiveFieldProps<TFormValues extends FieldValues> {
     control: Control<TFormValues>;
     name: Path<TFormValues>;
+    showLabel?: boolean;
+    showDescription?: boolean;
 }
 
 export function CurrencyIsActiveField<TFormValues extends FieldValues>({
     control,
     name,
+    showLabel = true,
+    showDescription = true,
 }: ICurrencyIsActiveFieldProps<TFormValues>) {
     const { dict } = useI18n();
 
@@ -40,8 +44,10 @@ export function CurrencyIsActiveField<TFormValues extends FieldValues>({
                         />
                     </FormControl>
                     <div className="space-y-1 leading-none">
-                        <FormLabel>{labels.label}</FormLabel>
-                        <FormDescription>{labels.description}</FormDescription>
+                        {showLabel ? <FormLabel>{labels.label}</FormLabel> : null}
+                        {showDescription ? (
+                            <FormDescription>{labels.description}</FormDescription>
+                        ) : null}
                     </div>
                     <FormMessage />
                 </FormItem>

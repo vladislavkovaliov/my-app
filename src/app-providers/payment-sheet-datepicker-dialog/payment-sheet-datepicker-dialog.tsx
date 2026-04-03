@@ -53,10 +53,11 @@ export function PaymentSheetDatePickerDialogProvider({
 export const usePaymentSheetDatePickerDialog = () => {
     const context = useContext(PaymentSheetDatePickerDialogContext);
 
-    if (!context)
+    if (!context) {
         throw new Error(
             'usePaymentSheetDatePickerDialog must be used within PaymentSheetDatePickerDialogProvider',
         );
+    }
 
     return context;
 };

@@ -25,12 +25,16 @@ export interface ICoursesFieldProps<TFormValues extends FieldValues> {
         value: ICourse['id'];
         label: ICourse['title'];
     }[];
+    showLabel?: boolean;
+    showDescription?: boolean;
 }
 
 export function CoursesField<TFormValues extends FieldValues>({
     control,
     name,
     courses,
+    showLabel = true,
+    showDescription = true,
 }: ICoursesFieldProps<TFormValues>) {
     const [open, setOpen] = React.useState(false);
     const [_, setValue] = React.useState('');
@@ -41,7 +45,7 @@ export function CoursesField<TFormValues extends FieldValues>({
             name={name}
             render={({ field }) => (
                 <FormItem>
-                    <FormLabel>Course</FormLabel>
+                    {showLabel && <FormLabel>Course</FormLabel>}
                     <Popover open={open} onOpenChange={setOpen}>
                         <PopoverTrigger asChild>
                             <Button
@@ -86,7 +90,9 @@ export function CoursesField<TFormValues extends FieldValues>({
                             </Command>
                         </PopoverContent>
                     </Popover>
-                    <FormDescription>Select your preferred course.</FormDescription>
+                    {showDescription && (
+                        <FormDescription>Select your preferred course.</FormDescription>
+                    )}
                     <FormMessage />
                 </FormItem>
             )}

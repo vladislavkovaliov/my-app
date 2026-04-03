@@ -14,7 +14,9 @@ export default async function LangLayout({
 }>) {
     const { lang } = await params;
 
-    if (!hasLocale(lang)) notFound();
+    if (!hasLocale(lang)) {
+        notFound();
+    }
 
     const dict = await getDictionary(lang);
 

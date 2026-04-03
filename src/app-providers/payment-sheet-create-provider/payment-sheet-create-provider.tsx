@@ -51,8 +51,9 @@ export function PaymentSheetCreateProvider({ children }: IPaymentSheetCreateProv
 export const usePaymentSheetCreate = () => {
     const context = useContext(PaymentSheetCreateContext);
 
-    if (!context)
+    if (!context) {
         throw new Error('usePaymentSheetCreate must be used within PaymentSheetCreateProvider');
+    }
 
     return context;
 };

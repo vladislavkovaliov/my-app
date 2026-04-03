@@ -51,8 +51,9 @@ export function CurrencySheetCreateProvider({ children }: ICurrencySheetCreatePr
 export const useCurrencySheetCreate = () => {
     const context = useContext(CurrencySheetCreateContext);
 
-    if (!context)
+    if (!context) {
         throw new Error('useCurrencySheetCreate must be used within CurrencySheetCreateProvider');
+    }
 
     return context;
 };

@@ -14,7 +14,9 @@ export const updateCourse = async ({ id, ...rest }: IUpdateCoursePayload) => {
         body: JSON.stringify({ id, ...rest }),
     });
 
-    if (!res.ok) throw new Error('Failed to fetch');
+    if (!res.ok) {
+        throw new Error('Failed to fetch');
+    }
 
     return res.json();
 };

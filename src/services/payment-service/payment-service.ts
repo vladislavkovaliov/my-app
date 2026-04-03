@@ -57,6 +57,15 @@ export class PaymentService extends PrismaService {
         });
     };
 
+    delete = (payment: Pick<IPayment, 'id'>, user: Pick<IUser, 'id'>) => {
+        return this.prisma.payment.delete({
+            where: {
+                id: payment.id,
+                userId: user.id,
+            },
+        });
+    };
+
     getTotal = (user: Pick<IUser, 'id'>) => {
         return this.prisma.payment.count({
             where: { userId: user.id },

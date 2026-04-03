@@ -13,6 +13,9 @@
             "course": "Курсы",
             "course.table": "Таблица курсов",
             "course.create": "Создать курс",
+            "lesson": "Уроки",
+            "lesson.table": "Таблица уроков",
+            "lesson.create": "Создать урок",
             "currency": "Валюты",
             "currency.table": "Таблица валют",
             "currency.create": "Создать валюту",
@@ -95,6 +98,24 @@
             "price": "Цена",
             "currency": "Валюта"
         },
+        "lesson-grid": {
+            "title": "Название",
+            "startTime": "Время начала",
+            "endTime": "Время окончания",
+            "course": "Курс"
+        },
+        "lesson-grid-dropdown-menu": {
+            "show-menu": "Показать меню",
+            "lesson": "Урок",
+            "edit": "Редактировать",
+            "delete": "Удалить"
+        },
+        "lesson": {
+            "sheet": {
+                "title": "Новый урок",
+                "description": "Укажите название, время начала/окончания и курс."
+            }
+        },
         "currency-grid": {
             "id": "ID",
             "code": "Код",
@@ -103,6 +124,14 @@
             "isActive": "Активна",
             "activeYes": "Да",
             "activeNo": "Нет"
+        },
+        "currency-grid-dropdown-menu": {
+            "show-menu": "Показать меню",
+            "currency": "Валюта",
+            "edit": "Редактировать",
+            "activate": "Активировать",
+            "deactivate": "Деактивировать",
+            "delete": "Удалить"
         },
         "course-grid-dropdown-menu": {
             "show-menu": "Показать меню",

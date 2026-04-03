@@ -67,8 +67,9 @@ export function PaymentDialogManegerProvider({ children }: IPaymentDialogManeger
 export const usePaymentDialogMagener = () => {
     const context = useContext(PaymentDialogManegerContext);
 
-    if (!context)
+    if (!context) {
         throw new Error('usePaymentDialogMagener must be used within PaymentDialogManegerProvider');
+    }
 
     return context;
 };

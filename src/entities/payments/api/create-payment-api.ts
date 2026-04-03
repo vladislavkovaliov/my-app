@@ -6,7 +6,9 @@ export const createPayment = async ({ ...rest }: ICreatePaymentBody) => {
         body: JSON.stringify(rest),
     });
 
-    if (!res.ok) throw new Error('Failed to fetch');
+    if (!res.ok) {
+        throw new Error('Failed to fetch');
+    }
 
     return res.json();
 };

@@ -101,4 +101,20 @@ export const getMenuConfig = (): MenuConfig => [
             },
         ],
     },
+    {
+        id: 'lesson',
+        i18n: 'lesson',
+        items: [
+            {
+                type: 'item',
+                id: 'lesson-table',
+                i18n: 'lesson.table',
+            },
+            {
+                type: 'item',
+                id: 'lesson-create',
+                i18n: 'lesson.create',
+            },
+        ],
+    },
 ];

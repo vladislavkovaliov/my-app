@@ -38,6 +38,16 @@ const eslintConfig = defineConfig([
             ],
             'perfectionist/sort-imports': 'error',
             'no-empty-pattern': 'off',
+            curly: ['error', 'all'],
+            'no-multiple-empty-lines': ['error', { max: 1, maxBOF: 0, maxEOF: 0 }],
+            'padding-line-between-statements': [
+                'error',
+                { blankLine: 'always', prev: 'const', next: 'if' },
+                { blankLine: 'always', prev: 'if', next: 'const' },
+                { blankLine: 'always', prev: 'if', next: 'return' },
+                { blankLine: 'always', prev: '*', next: 'return' },
+                { blankLine: 'any', prev: 'const', next: 'const' },
+            ],
             'no-unused-vars': [
                 'off',
                 { vars: 'all', args: 'after-used', ignoreRestSiblings: false },

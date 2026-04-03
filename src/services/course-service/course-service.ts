@@ -53,6 +53,12 @@ export class CourseService extends PrismaService {
 
         return { courses, total };
     };
+
+    delete = (course: Pick<ICourse, 'id'>) => {
+        return this.prisma.course.delete({
+            where: { id: course.id },
+        });
+    };
 }
 
 let courseServiceInstance: CourseService | undefined = undefined;

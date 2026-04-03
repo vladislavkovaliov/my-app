@@ -19,6 +19,26 @@ export class CurrencyService extends PrismaService {
         });
     };
 
+    update = (
+        id: ICurrency['id'],
+        data: Partial<Pick<ICurrency, 'code' | 'name' | 'symbol' | 'isActive'>>,
+    ) => {
+        return this.prisma.currency.update({
+            where: { id },
+            data: {
+                ...(typeof data.code === 'string' && { code: data.code.trim().toUpperCase() }),
+                ...(typeof data.name === 'string' && { name: data.name.trim() }),
+                ...(data.symbol !== undefined && {
+                    symbol:
+                        data.symbol != null && data.symbol.trim() !== ''
+                            ? data.symbol.trim()
+                            : null,
+                }),
+                ...(typeof data.isActive === 'boolean' && { isActive: data.isActive }),
+            },
+        });
+    };
+
     findMany = () => {
         return this.prisma.currency.findMany({
             orderBy: { code: 'asc' },
@@ -36,6 +56,21 @@ export class CurrencyService extends PrismaService {
         ]);
 
         return { currencies, total };
+    };
+
+    delete = (currency: Pick<ICurrency, 'id'>) => {
+        return this.prisma.currency.delete({
+            where: { id: currency.id },
+        });
+    };
+
+    canDelete = async (currency: Pick<ICurrency, 'id'>) => {
+        const [courseCount, paymentCount] = await this.prisma.$transaction([
+            this.prisma.course.count({ where: { currencyId: currency.id } }),
+            this.prisma.payment.count({ where: { currencyId: currency.id } }),
+        ]);
+
+        return { canDelete: courseCount === 0 && paymentCount === 0, courseCount, paymentCount };
     };
 }
 

@@ -3,3 +3,8 @@ export { AccountService, getAccountService } from './account-service/account-ser
 export { PaymentService, getPaymentService } from './payment-service/payment-service';
 export { CourseService, getCourseService } from './course-service/course-service';
 export { CurrencyService, getCurrencyService } from './currency-service/currency-service';
+export { LessonService, getLessonService } from './lesson-service/lesson-service';
+export {
+    LessonPaymentService,
+    getLessonPaymentService,
+} from './lesson-payment-service/lesson-payment-service';

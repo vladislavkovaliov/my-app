@@ -6,7 +6,9 @@ export const updatePayment = async ({ ...rest }: Partial<IPayment>) => {
         body: JSON.stringify(rest),
     });
 
-    if (!res.ok) throw new Error('Failed to fetch');
+    if (!res.ok) {
+        throw new Error('Failed to fetch');
+    }
 
     return res.json();
 };
