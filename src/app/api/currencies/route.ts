@@ -2,16 +2,11 @@ import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
 
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
-import { prisma } from '@/lib/prisma';
 import { getCurrencyService } from '@/services';
 
 export async function GET(_: NextRequest) {
     try {
-        const currencies = await prisma.currency.findMany({
-            orderBy: { code: 'asc' },
-        });
-
-        const total = await prisma.currency.count();
+        const { currencies, total } = await getCurrencyService().findManyAndTotal();
 
         return NextResponse.json({
             data: currencies,

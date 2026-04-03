@@ -15,11 +15,15 @@ import { Input } from '@/components/ui/input';
 interface ICourseTitleFieldProps<TFormValues extends FieldValues> {
     control: Control<TFormValues>;
     name: Path<TFormValues>;
+    showLabel?: boolean;
+    showDescription?: boolean;
 }
 
 export function CourseTitleField<TFormValues extends FieldValues>({
     control,
     name,
+    showLabel = true,
+    showDescription = true,
 }: ICourseTitleFieldProps<TFormValues>) {
     const { dict } = useI18n();
 
@@ -31,11 +35,13 @@ export function CourseTitleField<TFormValues extends FieldValues>({
             name={name}
             render={({ field }) => (
                 <FormItem>
-                    <FormLabel>{labels.label}</FormLabel>
+                    {showLabel ? <FormLabel>{labels.label}</FormLabel> : null}
                     <FormControl>
                         <Input placeholder={labels.placeholder} {...field} />
                     </FormControl>
-                    <FormDescription>{labels.description}</FormDescription>
+                    {showDescription ? (
+                        <FormDescription>{labels.description}</FormDescription>
+                    ) : null}
                     <FormMessage />
                 </FormItem>
             )}

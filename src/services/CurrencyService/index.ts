@@ -18,6 +18,25 @@ export class CurrencyService extends PrismaService {
             },
         });
     };
+
+    findMany = () => {
+        return this.prisma.currency.findMany({
+            orderBy: { code: 'asc' },
+        });
+    };
+
+    getTotal = () => {
+        return this.prisma.currency.count();
+    };
+
+    findManyAndTotal = async () => {
+        const [currencies, total] = await this.prisma.$transaction([
+            this.findMany(),
+            this.getTotal(),
+        ]);
+
+        return { currencies, total };
+    };
 }
 
 let currencyServiceInstance: CurrencyService | undefined = undefined;

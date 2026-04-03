@@ -104,6 +104,14 @@
             "activeYes": "Yes",
             "activeNo": "No"
         },
+        "course-grid-dropdown-menu": {
+            "show-menu": "Show menu",
+            "course": "Course",
+            "edit": "Edit",
+            "delete": "Delete",
+            "course-actions": "Actions",
+            "change-currency": "Change currency"
+        },
         "payment-grid-dropdown-menu": {
             "show-menu": "Show menu",
             "payment": "Payment",

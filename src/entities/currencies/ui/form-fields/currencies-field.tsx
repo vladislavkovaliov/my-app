@@ -25,12 +25,16 @@ export interface ICoursesFieldProps<TFormValues extends FieldValues> {
         value: ICurrency['id'];
         label: ICurrency['name'];
     }[];
+    showLabel?: boolean;
+    showDescription?: boolean;
 }
 
 export function CurrenciesField<TFormValues extends FieldValues>({
     control,
     name,
     currencies,
+    showLabel = true,
+    showDescription = true,
 }: ICoursesFieldProps<TFormValues>) {
     const [open, setOpen] = React.useState(false);
     const [_, setValue] = React.useState('');
@@ -41,7 +45,7 @@ export function CurrenciesField<TFormValues extends FieldValues>({
             name={name}
             render={({ field }) => (
                 <FormItem>
-                    <FormLabel>Currency</FormLabel>
+                    {showLabel ? <FormLabel>Currency</FormLabel> : null}
                     <Popover open={open} onOpenChange={setOpen}>
                         <PopoverTrigger asChild>
                             <Button
@@ -87,7 +91,9 @@ export function CurrenciesField<TFormValues extends FieldValues>({
                             </Command>
                         </PopoverContent>
                     </Popover>
-                    <FormDescription>Select your preferred currency.</FormDescription>
+                    {showDescription ? (
+                        <FormDescription>Select your preferred currency.</FormDescription>
+                    ) : null}
                     <FormMessage />
                 </FormItem>
             )}

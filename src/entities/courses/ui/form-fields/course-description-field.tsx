@@ -15,11 +15,15 @@ import { Textarea } from '@/components/ui/textarea';
 interface ICourseDescriptionFieldProps<TFormValues extends FieldValues> {
     control: Control<TFormValues>;
     name: Path<TFormValues>;
+    showLabel?: boolean;
+    showDescription?: boolean;
 }
 
 export function CourseDescriptionField<TFormValues extends FieldValues>({
     control,
     name,
+    showLabel = true,
+    showDescription = true,
 }: ICourseDescriptionFieldProps<TFormValues>) {
     const { dict } = useI18n();
 
@@ -31,15 +35,19 @@ export function CourseDescriptionField<TFormValues extends FieldValues>({
             name={name}
             render={({ field }) => (
                 <FormItem>
-                    <FormLabel>{labels.label}</FormLabel>
+                    {showLabel ? <FormLabel>{labels.label}</FormLabel> : null}
                     <FormControl>
                         <Textarea
                             placeholder={labels.placeholder}
-                            className="min-h-[88px]"
+                            className={
+                                showLabel && showDescription ? 'min-h-[88px]' : 'min-h-[52px]'
+                            }
                             {...field}
                         />
                     </FormControl>
-                    <FormDescription>{labels.description}</FormDescription>
+                    {showDescription ? (
+                        <FormDescription>{labels.description}</FormDescription>
+                    ) : null}
                     <FormMessage />
                 </FormItem>
             )}

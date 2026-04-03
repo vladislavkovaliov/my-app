@@ -18,6 +18,41 @@ export class CourseService extends PrismaService {
             },
         });
     };
+
+    update = (
+        id: ICourse['id'],
+        data: Partial<Pick<ICourse, 'title' | 'description' | 'price' | 'currencyId'>>,
+    ) => {
+        const { currencyId, ...rest } = data;
+
+        return this.prisma.course.update({
+            where: { id },
+            data: {
+                ...rest,
+                ...(currencyId !== undefined && {
+                    currency: { connect: { id: currencyId } },
+                }),
+            },
+            include: { currency: true },
+        });
+    };
+
+    findMany = () => {
+        return this.prisma.course.findMany({
+            include: { currency: true },
+            orderBy: { title: 'asc' },
+        });
+    };
+
+    getTotal = () => {
+        return this.prisma.course.count();
+    };
+
+    findManyAndTotal = async () => {
+        const [courses, total] = await this.prisma.$transaction([this.findMany(), this.getTotal()]);
+
+        return { courses, total };
+    };
 }
 
 let courseServiceInstance: CourseService | undefined = undefined;

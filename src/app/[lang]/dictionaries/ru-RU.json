@@ -104,6 +104,14 @@
             "activeYes": "Да",
             "activeNo": "Нет"
         },
+        "course-grid-dropdown-menu": {
+            "show-menu": "Показать меню",
+            "course": "Курс",
+            "edit": "Редактировать",
+            "delete": "Удалить",
+            "course-actions": "Действия",
+            "change-currency": "Сменить валюту"
+        },
         "payment-grid-dropdown-menu": {
             "show-menu": "Показать меню",
             "payment": "Платёж",
