@@ -3,7 +3,7 @@ import { Session, SignInParams, AuthOptions } from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
 
 import { getGoogleProviderConfig, HOUR } from '@/app/api/auth/[...nextauth]/config';
-import { getAccountService, getUserService } from '@/services';
+import { getAccountService, getUserService } from '@/services/services';
 
 export const authOptions = {
     providers: [GoogleProvider(getGoogleProviderConfig())],

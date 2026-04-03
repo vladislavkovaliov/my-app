@@ -3,9 +3,9 @@
 import { useRouter } from 'next/navigation';
 import { useCallback, useMemo } from 'react';
 
-import { useCourseSheetCreate } from '@/app-providers/course-sheet-create-provider';
-import { useCurrencySheetCreate } from '@/app-providers/currency-sheet-create-provider';
-import { usePaymentSheetCreate } from '@/app-providers/payment-sheet-create-provider';
+import { useCourseSheetCreate } from '@/app-providers/course-sheet-create-provider/course-sheet-create-provider';
+import { useCurrencySheetCreate } from '@/app-providers/currency-sheet-create-provider/currency-sheet-create-provider';
+import { usePaymentSheetCreate } from '@/app-providers/payment-sheet-create-provider/payment-sheet-create-provider';
 import {
     Menubar,
     MenubarCheckboxItem,
@@ -22,7 +22,7 @@ import { assertNever } from '@/shared/helpers/assertNever';
 import { useLanguageSwitch } from '@/shared/hooks/useLanguageSwitch';
 import { getMenuConfig } from '@/widgets/app-header/config';
 
-import { useI18n } from '../../app-providers/i-18n-provider';
+import { useI18n } from '@/app-providers/i-18n-provider/i-18n-provider';
 import { MenuItem } from './types';
 
 export interface IAppHeaderProps {}

@@ -1,7 +1,7 @@
 import { type MouseEvent, useMemo } from 'react';
 
-import { useI18n } from '@/app-providers/i-18n-provider';
-import { usePaymentDataGridMode } from '@/app-providers/payment-data-grid-mode';
+import { useI18n } from '@/app-providers/i-18n-provider/i-18n-provider';
+import { usePaymentDataGridMode } from '@/app-providers/payment-data-grid-mode/payment-data-grid-mode';
 import { Button } from '@/components/ui/button';
 import {
     DropdownMenu,

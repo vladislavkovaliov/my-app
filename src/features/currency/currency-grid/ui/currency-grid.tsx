@@ -2,9 +2,9 @@
 
 import { useMemo } from 'react';
 
-import { useI18n } from '@/app-providers/i-18n-provider';
+import { useI18n } from '@/app-providers/i-18n-provider/i-18n-provider';
 import { useCurrencies } from '@/features/currency/currency-grid/hooks/use-currencies';
-import { DataGrid } from '@/widgets/data-grid';
+import { DataGrid } from '@/widgets/data-grid/data-grid';
 
 import { getColumns } from './colums';
 

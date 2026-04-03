@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import { ALLOWED_STATUSES } from '@/entities/payments/model/payment';
 import { Payment as IPayment } from '@/generated/prisma';
-import { getPaymentService, getUserService } from '@/services';
+import { getPaymentService, getUserService } from '@/services/services';
 
 export async function GET(req: NextRequest) {
     try {

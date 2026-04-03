@@ -2,13 +2,12 @@
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-import { PaymentDataGridModeProvider } from '@/app-providers/payment-data-grid-mode';
-import { PaymentSheetDatePickerDialogProvider } from '@/app-providers/payment-sheet-datepicker-dialog';
-
-import { CourseSheetCreateProvider } from '../course-sheet-create-provider';
-import { CurrencySheetCreateProvider } from '../currency-sheet-create-provider';
-import { PaymentSheetCreateProvider } from '../payment-sheet-create-provider';
-import { NextAuthProvider } from '../session-provider';
+import { CourseSheetCreateProvider } from '@/app-providers/course-sheet-create-provider/course-sheet-create-provider';
+import { CurrencySheetCreateProvider } from '@/app-providers/currency-sheet-create-provider/currency-sheet-create-provider';
+import { PaymentDataGridModeProvider } from '@/app-providers/payment-data-grid-mode/payment-data-grid-mode';
+import { PaymentSheetCreateProvider } from '@/app-providers/payment-sheet-create-provider/payment-sheet-create-provider';
+import { PaymentSheetDatePickerDialogProvider } from '@/app-providers/payment-sheet-datepicker-dialog/payment-sheet-datepicker-dialog';
+import { NextAuthProvider } from '@/app-providers/session-provider/session-provider';
 
 const queryClient = new QueryClient();
 

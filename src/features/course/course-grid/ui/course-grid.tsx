@@ -2,15 +2,15 @@
 
 import { useEffect, useMemo } from 'react';
 
-import { useI18n } from '@/app-providers/i-18n-provider';
-import { usePaymentDataGridMode } from '@/app-providers/payment-data-grid-mode';
+import { useI18n } from '@/app-providers/i-18n-provider/i-18n-provider';
+import { usePaymentDataGridMode } from '@/app-providers/payment-data-grid-mode/payment-data-grid-mode';
 import { Form } from '@/components/ui/form';
 import { useCourses } from '@/features/course/course-grid/hooks/use-courses';
 import { useCurrenciesList } from '@/features/payment/payment-sheet-create/hooks/use-currencies-list';
 import { useCourseForm } from '@/shared/hooks/use-course-form';
 import { useUpdateCourse } from '@/shared/hooks/use-update-course';
 import { CourseFormValues } from '@/shared/lib/form/course-form-schema';
-import { DataGrid } from '@/widgets/data-grid';
+import { DataGrid } from '@/widgets/data-grid/data-grid';
 
 import { getColumns } from './colums';
 

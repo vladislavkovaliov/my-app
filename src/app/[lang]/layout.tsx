@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 
-import { I18nProvider } from '@/app-providers';
-import { AppHeader } from '@/widgets/app-header';
+import { I18nProvider } from '@/app-providers/app-providers';
+import { AppHeader } from '@/widgets/app-header/app-header';
 
 import { getDictionary, hasLocale } from './dictionaries';
 

@@ -3,7 +3,7 @@
 import { useMemo } from 'react';
 
 import { useLessonList } from '@/features/calendar/hooks/get-lessons';
-import { Calendar } from '@/widgets/calendar';
+import { Calendar } from '@/widgets/calendar/calendar';
 
 export function LessonCalendar() {
     const { data: dataLessons } = useLessonList();

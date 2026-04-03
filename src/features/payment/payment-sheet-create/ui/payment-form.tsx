@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import * as React from 'react';
 import { useWatch } from 'react-hook-form';
 
-import { useI18n } from '@/app-providers/i-18n-provider';
+import { useI18n } from '@/app-providers/i-18n-provider/i-18n-provider';
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
 import { CoursesField } from '@/entities/courses/ui/form-fields/courses-field';

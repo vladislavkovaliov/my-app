@@ -2,14 +2,14 @@
 
 import { useEffect, useMemo } from 'react';
 
-import { useI18n } from '@/app-providers/i-18n-provider';
-import { usePaymentDataGridMode } from '@/app-providers/payment-data-grid-mode';
+import { useI18n } from '@/app-providers/i-18n-provider/i-18n-provider';
+import { usePaymentDataGridMode } from '@/app-providers/payment-data-grid-mode/payment-data-grid-mode';
 import { Form } from '@/components/ui/form';
 import { usePayments } from '@/features/payment/payment-grid/hooks/use-payments';
 import { usePaymentForm } from '@/shared/hooks/use-payment-form';
 import { useUpdatePayment } from '@/shared/hooks/use-update-payment';
 import { PaymentFormValues } from '@/shared/lib/form/payment-form-schema';
-import { DataGrid } from '@/widgets/data-grid';
+import { DataGrid } from '@/widgets/data-grid/data-grid';
 
 import { getColumns } from './colums';
 

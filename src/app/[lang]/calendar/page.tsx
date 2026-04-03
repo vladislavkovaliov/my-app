@@ -1,4 +1,4 @@
-import { LessonCalendar } from '@/features/calendar/ui';
+import { LessonCalendar } from '@/features/calendar/lesson-calendar/lesson-calendar';
 
 export default function Page() {
     return (

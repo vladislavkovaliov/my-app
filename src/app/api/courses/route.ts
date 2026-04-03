@@ -2,7 +2,7 @@ import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
 
 import { authOptions } from '@/app/api/auth/[...nextauth]/route';
-import { getCourseService } from '@/services';
+import { getCourseService } from '@/services/services';
 
 export async function GET(_: NextRequest) {
     try {

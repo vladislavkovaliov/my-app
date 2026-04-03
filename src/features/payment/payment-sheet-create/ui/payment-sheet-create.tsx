@@ -1,6 +1,6 @@
 'use client';
 
-import { usePaymentSheetCreate } from '@/app-providers/payment-sheet-create-provider';
+import { usePaymentSheetCreate } from '@/app-providers/payment-sheet-create-provider/payment-sheet-create-provider';
 
 import { PaymentForm } from './payment-form';
 import { PaymentSheet } from './payment-sheet';

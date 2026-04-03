@@ -3,7 +3,7 @@ import { User as NextAuthUser } from 'next-auth';
 import { User as IUser } from '@/generated/prisma';
 import { PrismaClient } from '@/generated/prisma/client';
 import { prisma } from '@/lib/prisma';
-import { PrismaService } from '@/services/PrismaService';
+import { PrismaService } from '@/services/prisma-service/prisma-service';
 
 export class UserService extends PrismaService {
     constructor(prisma: PrismaClient) {

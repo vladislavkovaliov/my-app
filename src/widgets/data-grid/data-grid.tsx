@@ -11,7 +11,7 @@ import {
 } from '@tanstack/react-table';
 import { useState } from 'react';
 
-import { useI18n } from '@/app-providers/i-18n-provider';
+import { useI18n } from '@/app-providers/i-18n-provider/i-18n-provider';
 import { DataGridContainer, DataGrid as _DataGrid } from '@/components/ui/data-grid';
 import { DataGridPagination } from '@/components/ui/data-grid-pagination';
 import { DataGridTable } from '@/components/ui/data-grid-table';

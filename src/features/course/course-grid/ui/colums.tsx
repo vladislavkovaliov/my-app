@@ -1,7 +1,7 @@
 import { CellContext } from '@tanstack/table-core';
 import { Control } from 'react-hook-form';
 
-import { Mode } from '@/app-providers/payment-data-grid-mode';
+import { Mode } from '@/app-providers/payment-data-grid-mode/payment-data-grid-mode';
 import { Dict } from '@/app/[lang]/i18n';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';

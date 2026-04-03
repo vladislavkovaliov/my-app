@@ -1,6 +1,6 @@
 import { useWatch } from 'react-hook-form';
 
-import { useI18n } from '@/app-providers/i-18n-provider';
+import { useI18n } from '@/app-providers/i-18n-provider/i-18n-provider';
 import { Button } from '@/components/ui/button';
 import { Form } from '@/components/ui/form';
 import { CurrencyCodeField } from '@/entities/currencies/ui/form-fields/currency-code-field';

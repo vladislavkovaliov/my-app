@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Control, FieldValues, Path } from 'react-hook-form';
 
-import { useI18n } from '@/app-providers/i-18n-provider';
+import { useI18n } from '@/app-providers/i-18n-provider/i-18n-provider';
 import { Checkbox } from '@/components/ui/checkbox';
 import {
     FormControl,

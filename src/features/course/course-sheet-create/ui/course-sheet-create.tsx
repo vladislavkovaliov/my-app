@@ -1,6 +1,6 @@
 'use client';
 
-import { useCourseSheetCreate } from '@/app-providers/course-sheet-create-provider';
+import { useCourseSheetCreate } from '@/app-providers/course-sheet-create-provider/course-sheet-create-provider';
 
 import { CourseForm } from './course-form';
 import { CourseSheet } from './course-sheet';

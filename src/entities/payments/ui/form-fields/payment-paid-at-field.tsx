@@ -2,7 +2,7 @@ import { format } from 'date-fns';
 import { X } from 'lucide-react';
 import { Control, FieldValues, Path } from 'react-hook-form';
 
-import { useI18n } from '@/app-providers/i-18n-provider';
+import { useI18n } from '@/app-providers/i-18n-provider/i-18n-provider';
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
 import { FormField } from '@/components/ui/form';

@@ -1,7 +1,7 @@
 import { Currency as ICurrency } from '@/generated/prisma';
 import { PrismaClient } from '@/generated/prisma/client';
 import { prisma } from '@/lib/prisma';
-import { PrismaService } from '@/services/PrismaService';
+import { PrismaService } from '@/services/prisma-service/prisma-service';
 
 export class CurrencyService extends PrismaService {
     constructor(prisma: PrismaClient) {

@@ -1,7 +1,7 @@
 import { useDirection } from '@radix-ui/react-direction';
 import * as React from 'react';
 
-import { useI18n } from '@/app-providers/i-18n-provider';
+import { useI18n } from '@/app-providers/i-18n-provider/i-18n-provider';
 import {
     Sheet,
     SheetBody,
