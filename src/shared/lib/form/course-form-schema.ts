@@ -9,7 +9,7 @@ export const courseSchema = z.object({
 
 export type CourseFormValues = z.infer<typeof courseSchema>;
 
-/** Частичное обновление курса (PATCH): общие правила с `courseSchema`, плюс обязательный `id`. */
+/** Partial course update (PATCH): same rules as `courseSchema`, plus required `id`. */
 export const patchCourseSchema = z
     .object({
         id: z.string().min(1, { message: 'course id is required' }),

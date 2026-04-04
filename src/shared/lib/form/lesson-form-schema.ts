@@ -9,7 +9,7 @@ export const lessonSchema = z.object({
 
 export type LessonFormValues = z.infer<typeof lessonSchema>;
 
-/** Схема для API: принимает строки и преобразует в Date */
+/** API schema: accepts strings and coerces them to Date */
 export const lessonApiSchema = z.object({
     title: z.string().min(1, { message: 'Title is required' }),
     startTime: z.coerce.date(),
@@ -19,7 +19,7 @@ export const lessonApiSchema = z.object({
 
 export type LessonApiValues = z.infer<typeof lessonApiSchema>;
 
-/** Частичное обновление урока (PATCH): общие правила с `lessonSchema`, плюс обязательный `id`. */
+/** Partial lesson update (PATCH): same rules as `lessonSchema`, plus required `id`. */
 export const patchLessonSchema = z
     .object({
         id: z.string().min(1, { message: 'lesson id is required' }),

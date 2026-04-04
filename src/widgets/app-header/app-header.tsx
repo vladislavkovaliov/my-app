@@ -21,7 +21,7 @@ import {
     MenubarTrigger,
 } from '@/components/ui/menubar';
 import { assertNever } from '@/shared/helpers/assertNever';
-import { useLanguageSwitch } from '@/shared/hooks/useLanguageSwitch';
+import { useLanguageSwitch } from '@/shared/hooks/use-language-switch';
 import { getMenuConfig } from '@/widgets/app-header/config';
 
 import { MenuItem } from './types';

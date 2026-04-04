@@ -9,7 +9,7 @@ export const currencySchema = z.object({
 
 export type CurrencyFormValues = z.infer<typeof currencySchema>;
 
-/** Частичное обновление валюты (PATCH): общие правила с `currencySchema`, плюс обязательный `id`. */
+/** Partial currency update (PATCH): same rules as `currencySchema`, plus required `id`. */
 export const patchCurrencySchema = z
     .object({
         id: z.string().min(1, { message: 'currency id is required' }),

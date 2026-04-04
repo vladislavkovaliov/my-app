@@ -21,20 +21,15 @@ export class CurrencyService extends PrismaService {
 
     update = (
         id: ICurrency['id'],
-        data: Partial<Pick<ICurrency, 'code' | 'name' | 'symbol' | 'isActive'>>,
+        { code, name, symbol, isActive }: Pick<ICurrency, 'code' | 'name' | 'symbol' | 'isActive'>,
     ) => {
         return this.prisma.currency.update({
             where: { id },
             data: {
-                ...(typeof data.code === 'string' && { code: data.code.trim().toUpperCase() }),
-                ...(typeof data.name === 'string' && { name: data.name.trim() }),
-                ...(data.symbol !== undefined && {
-                    symbol:
-                        data.symbol != null && data.symbol.trim() !== ''
-                            ? data.symbol.trim()
-                            : null,
-                }),
-                ...(typeof data.isActive === 'boolean' && { isActive: data.isActive }),
+                code: code.trim().toUpperCase(),
+                name: name.trim(),
+                symbol: symbol !== null && symbol.trim() !== '' ? symbol.trim() : null,
+                isActive: isActive,
             },
         });
     };
