@@ -1,6 +1,5 @@
 branches:
     - main
-    - 'rc/1.16.x'
     - 'rc/1.17.x'
     - 'rc/1.18.x'
 
