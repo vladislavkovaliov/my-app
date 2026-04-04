@@ -37,12 +37,12 @@ jobs:
               with:
                   fetch-depth: 0
                   persist-credentials: false
-            - name: Semantic Release
-              uses: ./.github/workflows/semantic-release
-              with:
-                  branch: ${{ github.ref_name }}
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            # - name: Semantic Release
+            #   uses: ./.github/workflows/semantic-release
+            #   with:
+            #       branch: ${{ github.ref_name }}
+            #   env:
+            #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
             - name: Do something after release
               run: |

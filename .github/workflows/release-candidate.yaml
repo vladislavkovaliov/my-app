@@ -1,0 +1,21 @@
+name: RC Branch Created
+
+on:
+    create:
+
+jobs:
+    setup-rc:
+        if: github.ref_type == 'branch' && startsWith(github.ref, 'refs/heads/rc/')
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: RC branch detected
+              run: |
+                  echo "New RC branch: ${{ github.ref }}"
+
+            - name: Semantic Release
+              uses: ./.github/workflows/semantic-release
+              with:
+                  branch: ${{ github.ref_name }}
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
