@@ -1,16 +1,23 @@
-import { appendFileSync } from 'node:fs';
 import { randomBytes } from 'node:crypto';
+import { appendFileSync } from 'node:fs';
 import semanticRelease from 'semantic-release';
 
 function setOutput(name, value) {
     const out = process.env.GITHUB_OUTPUT;
-    if (!out || value === undefined || value === null) return;
+
+    if (!out || value === undefined || value === null) {
+        return;
+    }
     appendFileSync(out, `${name}=${String(value)}\n`);
 }
 
 function setOutputMultiline(name, value) {
     const out = process.env.GITHUB_OUTPUT;
-    if (!out || value === undefined || value === null) return;
+
+    if (!out || value === undefined || value === null) {
+        return;
+    }
+
     const delim = `DELIM_${randomBytes(16).toString('hex')}`;
     appendFileSync(out, `${name}<<${delim}\n${value}\n${delim}\n`);
 }

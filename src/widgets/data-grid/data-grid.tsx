@@ -37,6 +37,7 @@ export function DataGrid<T extends { id: string }>({
 
     const [sorting, setSorting] = useState<SortingState>([{ id: 'id', desc: true }]);
 
+    // eslint-disable-next-line react-hooks/incompatible-library
     const table = useReactTable({
         columns: columns,
         data: data,
