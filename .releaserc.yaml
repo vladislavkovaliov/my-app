@@ -1,7 +1,7 @@
 branches:
     - main
     - name: rc/*
-      prerelease: rc
+      prerelease: true
 
 plugins:
     - - '@semantic-release/commit-analyzer'
