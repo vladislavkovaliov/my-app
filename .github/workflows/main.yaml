@@ -43,3 +43,7 @@ jobs:
                   branch: ${{ github.ref_name }}
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Do something after release
+              run: |
+                  echo 42

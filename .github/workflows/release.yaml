@@ -1,0 +1,16 @@
+name: On Release Published
+
+on:
+    release:
+        types: [published]
+
+jobs:
+    after-release:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Print info
+              run: |
+                  echo "Release published!"
+                  echo "Tag: ${{ github.event.release.tag_name }}"
+                  echo "Name: ${{ github.event.release.name }}"
