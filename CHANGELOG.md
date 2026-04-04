@@ -1,3 +1,9 @@
+# [1.11.0](https://github.com/vladislavkovaliov/my-app/compare/v1.10.0...v1.11.0) (2026-04-04)
+
+### Features
+
+- [UI-0000] up semantic release version ([ce48fa6](https://github.com/vladislavkovaliov/my-app/commit/ce48fa6b5bc46a5b663dadd4e959ef97cf25d2a2))
+
 # [1.10.0](https://github.com/vladislavkovaliov/my-app/compare/v1.9.0...v1.10.0) (2026-04-04)
 
 ### Features
