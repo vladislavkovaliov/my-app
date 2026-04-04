@@ -1,3 +1,15 @@
+## [1.16.0](https://github.com/vladislavkovaliov/my-app/compare/v1.15.0...v1.16.0) (2026-04-04)
+
+### Features
+
+* feat: [UI-0000] adds release action is triggered on published release (f1a8c48)
+### Fixes
+
+* fix: [UI-0000] removes dupl of release-notes-generator (11bfc66)
+### Code Refactoring
+
+* refactor: [UI-0000] changes Bug Fixes to Fixes (af0d4fe)
+
 # [1.15.0](https://github.com/vladislavkovaliov/my-app/compare/v1.14.0...v1.15.0) (2026-04-04)
 
 
