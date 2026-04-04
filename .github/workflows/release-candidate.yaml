@@ -7,6 +7,8 @@ jobs:
     setup-rc:
         if: github.ref_type == 'branch' && startsWith(github.ref, 'refs/heads/rc/')
         runs-on: ubuntu-latest
+        permissions:
+            contents: write
 
         steps:
             - name: RC branch detected
