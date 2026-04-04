@@ -10,7 +10,27 @@ on:
     workflow_dispatch:
 
 jobs:
+    checkout:
+        name: checkout
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+                  persist-credentials: false
+
+    ci:
+        needs: ['checkout']
+        name: Lint
+        runs-on: ubuntu-latest
+        steps:
+            - name: Call eslint
+              run: npm run lint
+
     semantic-release:
+        needs: ['ci']
+
         if: "!contains(github.event.head_commit.message, '[skip ci]')"
 
         name: Semantic Release
