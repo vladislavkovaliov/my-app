@@ -34,23 +34,13 @@ jobs:
               run: mv release.config.prerelease.cjs release.config.cjs
 
             - name: Install semantic-release
-              run: |
-                  npm install --no-save --no-fund --no-audit \
-                    semantic-release@22.0.12 \
-                    @semantic-release/commit-analyzer@11.0.0 \
-                    @semantic-release/release-notes-generator@12.0.0 \
-                    @semantic-release/github@9.2.6 \
-                    @semantic-release/changelog@6.0.3 \
-                    @semantic-release/npm@11.0.3 \
-                    @semantic-release/git@10.0.1 \
-                    @semantic-release/exec@6.0.3 \
-                    conventional-changelog-conventionalcommits@9.3.1
+              run: npm ci
 
             - name: Semantic Release
               id: semantic
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              run: node .github/scripts/semantic-release-run.mjs
+              run: npx semantic-release
 
             - name: Do something when a new release published
               if: steps.semantic.outputs.new_release_published == 'true'
