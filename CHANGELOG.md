@@ -1,3 +1,10 @@
+## [1.6.2](https://github.com/vladislavkovaliov/my-app/compare/v1.6.1...v1.6.2) (2026-04-04)
+
+
+### Bug Fixes
+
+* fix: [UI-0000] fixs changes log messages on release (c0a1155)
+
 ## [1.6.1](https://github.com/vladislavkovaliov/my-app/compare/v1.6.0...v1.6.1) (2026-04-04)
 
 
