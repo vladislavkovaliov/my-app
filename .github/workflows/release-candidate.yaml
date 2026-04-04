@@ -12,6 +12,11 @@ jobs:
             - name: RC branch detected
               run: |
                   echo "New RC branch: ${{ github.ref }}"
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+                  persist-credentials: false
 
             - name: Semantic Release
               uses: ./.github/workflows/semantic-release
