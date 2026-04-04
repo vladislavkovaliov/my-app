@@ -1,0 +1,70 @@
+name: 'Semantic Release'
+description: 'Reusable semantic-release action for automated versioning and publishing'
+
+inputs:
+    branch:
+        description: 'Branch to run semantic-release on'
+        required: true
+        default: 'main'
+    # node-version:
+    #   description: 'Node.js version to use'
+    #   required: false
+    #   default: '24'
+    # prerelease-config:
+    #   description: 'Prerelease config filename'
+    #   required: false
+    #   default: 'release.config.prerelease.cjs'
+    # release-config:
+    #   description: 'Release config filename'
+    #   required: false
+    #   default: '.releaserc.yaml'
+
+outputs:
+    new_release_published:
+        description: 'Whether a new release was published'
+        value: ${{ steps.semantic.outputs.new_release_published }}
+    new_release_version:
+        description: 'The new release version'
+        value: ${{ steps.semantic.outputs.new_release_version }}
+    new_release_major_version:
+        description: 'The major version number'
+        value: ${{ steps.semantic.outputs.new_release_major_version }}
+    new_release_minor_version:
+        description: 'The minor version number'
+        value: ${{ steps.semantic.outputs.new_release_minor_version }}
+    new_release_patch_version:
+        description: 'The patch version number'
+        value: ${{ steps.semantic.outputs.new_release_patch_version }}
+
+runs:
+    using: 'composite'
+    steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+          with:
+              fetch-depth: 0
+              persist-credentials: false
+
+        - uses: actions/setup-node@v4
+          with:
+              node-version: ${{ inputs.node-version }}
+
+        # - name: Prepare prerelease config
+        #   if: github.ref != 'refs/heads/main'
+        #   shell: bash
+        #   run: mv ${{ inputs.prerelease-config }} ${{ inputs.release-config }}
+
+        - name: Semantic Release
+          id: semantic
+          shell: bash
+          env:
+              GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
+          run: |
+              npx --package semantic-release \
+                  --package @semantic-release/commit-analyzer \
+                  --package @semantic-release/release-notes-generator \
+                  --package @semantic-release/changelog \
+                  --package @semantic-release/npm \
+                  --package @semantic-release/git \
+                  --package @semantic-release/exec \
+                  semantic-release

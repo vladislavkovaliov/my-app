@@ -19,33 +19,9 @@ jobs:
             contents: write
 
         steps:
-            - name: Checkout
-              uses: actions/checkout@v4
-              with:
-                  fetch-depth: 0
-                  persist-credentials: false
-
-            - uses: actions/setup-node@v4
-              with:
-                  node-version: '24'
-
-            - name: Prepare prerelease semantic
-              if: github.ref != 'refs/heads/main'
-              run: mv release.config.prerelease.cjs release.config.cjs
-
-            - name: Install semantic-release
-              run: npm ci
-
             - name: Semantic Release
-              id: semantic
+              uses: ./.github/workflows/semantic-release
+              with:
+                  branch: ${{ github.ref_name }}
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              run: npx semantic-release
-
-            - name: Do something when a new release published
-              if: steps.semantic.outputs.new_release_published == 'true'
-              run: |
-                  echo ${{ steps.semantic.outputs.new_release_version }}
-                  echo ${{ steps.semantic.outputs.new_release_major_version }}
-                  echo ${{ steps.semantic.outputs.new_release_minor_version }}
-                  echo ${{ steps.semantic.outputs.new_release_patch_version }}
