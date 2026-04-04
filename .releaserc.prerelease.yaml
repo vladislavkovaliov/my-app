@@ -8,7 +8,7 @@ plugins:
                 - type: feat
                   section: Features
                 - type: fix
-                  section: Bug Fixes
+                  section: Fixes
                 - type: perf
                   section: Performance Improvements
                 - type: revert
@@ -28,7 +28,7 @@ plugins:
                 - type: ci
                   section: CI/CD
         writerOpts:
-            commitPartial: '* **{{type}}**{{#if scope}}({{scope}}){{/if}}: {{#if subject}}{{subject}}{{else}}{{header}}{{/if}}{{#if hash}} ({{shortHash}}){{/if}}'
+            commitPartial: '* {{header}}{{#if hash}} ({{shortHash}}){{/if}}'
     - '@semantic-release/changelog'
     - - '@semantic-release/npm'
       - npmPublish: false
