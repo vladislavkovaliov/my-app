@@ -1,7 +1,11 @@
 branches:
     - main
-    - name: rc/*
-      prerelease: true
+    - name: 'rc/1.16.x'
+      prerelease: 'rc16'
+    - name: 'rc/1.17.x'
+      prerelease: 'rc17'
+    - name: 'rc/1.18.x'
+      prerelease: 'rc18'
 
 plugins:
     - - '@semantic-release/commit-analyzer'
