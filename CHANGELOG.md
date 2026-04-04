@@ -1,3 +1,15 @@
+# [1.6.0](https://github.com/vladislavkovaliov/my-app/compare/v1.5.0...v1.6.0) (2026-04-04)
+
+
+### Features
+
+* adds course create sheet ([c831096](https://github.com/vladislavkovaliov/my-app/commit/c8310961380ad61380ddbd5ae6906c34fdb38756))
+* adds course table ([305b31d](https://github.com/vladislavkovaliov/my-app/commit/305b31d68277b17b5a9b6b9c16488c82dffcd314))
+* adds courses ([a2c35c6](https://github.com/vladislavkovaliov/my-app/commit/a2c35c604622224e31242b6f310674bf73df143b))
+* adds currencies ([0982e29](https://github.com/vladislavkovaliov/my-app/commit/0982e29aefb1cfedecc763c696d57f1f42f3895a))
+* adds edit and delete for many features ([70be346](https://github.com/vladislavkovaliov/my-app/commit/70be346d20eaa3ec4569ae5bcdf0821442a003d0))
+* changes names of use-lang-detect and updates workflow ([0593695](https://github.com/vladislavkovaliov/my-app/commit/0593695467066ccaff56d8df1b55216f02383f86))
+
 # [1.5.0](https://github.com/vladislavkovaliov/my-app/compare/v1.4.0...v1.5.0) (2026-02-09)
 
 
