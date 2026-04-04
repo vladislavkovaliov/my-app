@@ -10,23 +10,16 @@ on:
     workflow_dispatch:
 
 jobs:
-    checkout:
-        name: checkout
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v4
-              with:
-                  fetch-depth: 0
-                  persist-credentials: false
-
     ci:
-        needs: ['checkout']
         name: Lint
         runs-on: ubuntu-latest
         steps:
-            - name: Call eslint
-              run: npm run lint
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: '24'
+            - run: npm ci
+            - run: npm run lint
 
     semantic-release:
         needs: ['ci']

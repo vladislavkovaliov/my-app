@@ -6,18 +6,10 @@ inputs:
         description: 'Branch to run semantic-release on'
         required: true
         default: 'main'
-    # node-version:
-    #   description: 'Node.js version to use'
-    #   required: false
-    #   default: '24'
-    # prerelease-config:
-    #   description: 'Prerelease config filename'
-    #   required: false
-    #   default: 'release.config.prerelease.cjs'
-    # release-config:
-    #   description: 'Release config filename'
-    #   required: false
-    #   default: '.releaserc.yaml'
+    node-version:
+        description: 'Node.js version to use'
+        required: false
+        default: '24'
 
 outputs:
     new_release_published:
@@ -39,26 +31,15 @@ outputs:
 runs:
     using: 'composite'
     steps:
-        # - name: Checkout
-        #   uses: actions/checkout@v4
-        #   with:
-        #       fetch-depth: 0
-        #       persist-credentials: false
-
         - uses: actions/setup-node@v4
           with:
               node-version: ${{ inputs.node-version }}
-
-        # - name: Prepare prerelease config
-        #   if: github.ref != 'refs/heads/main'
-        #   shell: bash
-        #   run: mv ${{ inputs.prerelease-config }} ${{ inputs.release-config }}
 
         - name: Semantic Release
           id: semantic
           shell: bash
           env:
-              GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
+              GITHUB_TOKEN: ${{ github.token }}
           run: |
               npx --package semantic-release \
                   --package @semantic-release/commit-analyzer \
