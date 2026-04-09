@@ -1,7 +1,6 @@
 name: RC Branch Created
 
 on:
-    create:
 
 jobs:
     setup-rc:
