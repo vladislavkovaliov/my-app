@@ -6,6 +6,20 @@
 
 ### Fixes
 
+- fix: [UI-0000] adds checkout in rc workflow (4a3917f)_ fix: [UI-0000] adds permission in actions (7a845bc)_ fix: [UI-0000] fixs releaserc config (24ff69c)_ fix: [UI-0000] try to set many prerelease in confi (2e84b1a)_ fix: [UI-0000] try to set prerelease into true (6e03b9f)_ fix: [UI-0000] updates config (15842de)_ fix: [UI-0000] updates config (2352186)_ fix: [UI-0000] updates semantic-release (9ec2597)_ fix: [UI-0000] updates semantic-release 2 (994d0e3)_ fix: [UI-0000] updates semantic-release 3 (bc99f57)_ fix: [UI-0000] updates semantic-release 4 (a451b19)_ fix: [UI-0000] updates semantic-release 5 (6d80fd0)_ fix: [UI-0000] updates semantic-release 6 (b445563)
+
+### Chores
+
+- chore(release): 1.17.0 [skip ci] (1d8c049)
+
+## [1.17.0](https://github.com/vladislavkovaliov/my-app/compare/v1.16.0...v1.17.0) (2026-04-09)
+
+### Features
+
+- feat: [UI-0000] adds rc workflow (121f156)
+
+### Fixes
+
 - fix: [UI-0000] adds checkout in rc workflow (4a3917f)_ fix: [UI-0000] adds permission in actions (7a845bc)_ fix: [UI-0000] fixs releaserc config (24ff69c)_ fix: [UI-0000] try to set many prerelease in confi (2e84b1a)_ fix: [UI-0000] try to set prerelease into true (6e03b9f)_ fix: [UI-0000] updates config (15842de)_ fix: [UI-0000] updates config (2352186)_ fix: [UI-0000] updates semantic-release (9ec2597)_ fix: [UI-0000] updates semantic-release 2 (994d0e3)_ fix: [UI-0000] updates semantic-release 3 (bc99f57)_ fix: [UI-0000] updates semantic-release 4 (a451b19)\* fix: [UI-0000] updates semantic-release 5 (6d80fd0)
 
 ## [1.16.0](https://github.com/vladislavkovaliov/my-app/compare/v1.15.0...v1.16.0) (2026-04-04)
