@@ -48,4 +48,5 @@ runs:
                   --package @semantic-release/npm \
                   --package @semantic-release/git \
                   --package @semantic-release/exec \
+                  --package conventional-changelog-conventionalcommits \
                   semantic-release
