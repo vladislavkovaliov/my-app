@@ -39,7 +39,8 @@ module.exports = {
                     ],
                 },
                 writerOpts: {
-                    commitPartial: '* {{header}}{{#if hash}} ({{shortHash}}){{/if}}',
+                    // Без перевода строки в конце каждый следующий коммит прилипает к предыдущему: `)* fix:`.
+                    commitPartial: '* {{header}}{{#if hash}} ({{shortHash}}){{/if}}\n',
                 },
             },
         ],
