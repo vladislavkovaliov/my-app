@@ -1,41 +1,52 @@
+## [1.17.0](https://github.com/vladislavkovaliov/my-app/compare/v1.16.0...v1.17.0) (2026-04-09)
+
+### Features
+
+- feat: [UI-0000] adds rc workflow (121f156)
+
+### Fixes
+
+- fix: [UI-0000] adds checkout in rc workflow (4a3917f)_ fix: [UI-0000] adds permission in actions (7a845bc)_ fix: [UI-0000] fixs releaserc config (24ff69c)_ fix: [UI-0000] try to set many prerelease in confi (2e84b1a)_ fix: [UI-0000] try to set prerelease into true (6e03b9f)_ fix: [UI-0000] updates config (15842de)_ fix: [UI-0000] updates config (2352186)_ fix: [UI-0000] updates semantic-release (9ec2597)_ fix: [UI-0000] updates semantic-release 2 (994d0e3)_ fix: [UI-0000] updates semantic-release 3 (bc99f57)_ fix: [UI-0000] updates semantic-release 4 (a451b19)\* fix: [UI-0000] updates semantic-release 5 (6d80fd0)
+
 ## [1.16.0](https://github.com/vladislavkovaliov/my-app/compare/v1.15.0...v1.16.0) (2026-04-04)
 
 ### Features
 
-* feat: [UI-0000] adds release action is triggered on published release (f1a8c48)
+- feat: [UI-0000] adds release action is triggered on published release (f1a8c48)
+
 ### Fixes
 
-* fix: [UI-0000] removes dupl of release-notes-generator (11bfc66)
+- fix: [UI-0000] removes dupl of release-notes-generator (11bfc66)
+
 ### Code Refactoring
 
-* refactor: [UI-0000] changes Bug Fixes to Fixes (af0d4fe)
+- refactor: [UI-0000] changes Bug Fixes to Fixes (af0d4fe)
 
 # [1.15.0](https://github.com/vladislavkovaliov/my-app/compare/v1.14.0...v1.15.0) (2026-04-04)
 
-
 ### Bug Fixes
 
-* [UI-0000] adds conventional-changelog-conventionalcommits to be installed before call semantic-release ([ccb04ca](https://github.com/vladislavkovaliov/my-app/commit/ccb04cae4ef14671308b7886b0565f8df9b877bf))
-* [UI-0000] fix actions/checkout before call shared action semantic-release ([8cc6b13](https://github.com/vladislavkovaliov/my-app/commit/8cc6b13f699e90f2d126c390b31e9aac8853400f))
-* [UI-0000] fix tabstack grid lint issue ([6ff3d7c](https://github.com/vladislavkovaliov/my-app/commit/6ff3d7cc66fd9aee77071a549b476d94369c227d))
-
+- [UI-0000] adds conventional-changelog-conventionalcommits to be installed before call semantic-release ([ccb04ca](https://github.com/vladislavkovaliov/my-app/commit/ccb04cae4ef14671308b7886b0565f8df9b877bf))
+- [UI-0000] fix actions/checkout before call shared action semantic-release ([8cc6b13](https://github.com/vladislavkovaliov/my-app/commit/8cc6b13f699e90f2d126c390b31e9aac8853400f))
+- [UI-0000] fix tabstack grid lint issue ([6ff3d7c](https://github.com/vladislavkovaliov/my-app/commit/6ff3d7cc66fd9aee77071a549b476d94369c227d))
 
 ### Features
 
-* [UI-0000] makes semantic-release reusable github action ([806b0e1](https://github.com/vladislavkovaliov/my-app/commit/806b0e1a251906874dff5ef23252853400ba4988))
-
+- [UI-0000] makes semantic-release reusable github action ([806b0e1](https://github.com/vladislavkovaliov/my-app/commit/806b0e1a251906874dff5ef23252853400ba4988))
 
 ## [1.15.0](https://github.com/vladislavkovaliov/my-app/compare/v1.14.0...v1.15.0) (2026-04-04)
 
 ### Features
 
-* feat: [UI-0000] makes semantic-release reusable github action (806b0e1)
+- feat: [UI-0000] makes semantic-release reusable github action (806b0e1)
+
 ### Bug Fixes
 
-* fix: [UI-0000] adds conventional-changelog-conventionalcommits to be installed before call semantic-release (ccb04ca)* fix: [UI-0000] fix actions/checkout before call shared action semantic-release (8cc6b13)* fix: [UI-0000] fix tabstack grid lint issue (6ff3d7c)
+- fix: [UI-0000] adds conventional-changelog-conventionalcommits to be installed before call semantic-release (ccb04ca)_ fix: [UI-0000] fix actions/checkout before call shared action semantic-release (8cc6b13)_ fix: [UI-0000] fix tabstack grid lint issue (6ff3d7c)
+
 ### Code Refactoring
 
-* refactor: [UI-0000] refactors workflow (a3ecc75)
+- refactor: [UI-0000] refactors workflow (a3ecc75)
 
 # [1.14.0](https://github.com/vladislavkovaliov/my-app/compare/v1.13.0...v1.14.0) (2026-04-04)
 
